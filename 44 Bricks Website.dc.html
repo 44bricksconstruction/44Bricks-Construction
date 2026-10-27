@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>44 BRICKS — Construction &amp; Infrastructure | Ghana</title>
+<meta name="description" content="44 BRICKS is a Ghanaian construction and infrastructure company delivering residential, commercial, industrial, water, urban development, and renewable energy projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F4F2EE;color:#0F1B33;font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:#003399;text-decoration:none}
+a:hover{color:#0A1A3C}
+::selection{background:#003399;color:#fff}
+section[id]{scroll-margin-top:72px}
+button{font-family:inherit}
+@keyframes s3dspin{0%{transform:rotateX(14deg) rotateY(-200deg) scale(.6);opacity:0}60%{opacity:1}100%{transform:rotateX(10deg) rotateY(14deg) scale(1);opacity:1}}
+@keyframes sfade{to{opacity:1}}
+@keyframes sload{to{width:100%}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes blink{50%{opacity:.15}}
+</style>
+<script src="fx3d.js"></script>
+<script src="site-data.js"></script>
+</helmet>
+<sc-if value="{{ splashOn }}" hint-placeholder-val="{{ false }}">{{ splashEl }}</sc-if>
+<sc-if value="{{ ambientOn }}" hint-placeholder-val="{{ false }}"><canvas ref="{{ ambientRef }}" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:40;pointer-events:none;opacity:.32"></canvas></sc-if>
+
+<dc-import name="Header" active="home" hint-size="100%,68px"></dc-import>
+
+<sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ true }}">
+<section id="top" style="max-width:1240px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,48px) 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,72px);align-items:end">
+    <div style="padding-bottom:8px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:28px">CONSTRUCTION &amp; INFRASTRUCTURE — GHANA</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 115;font-size:clamp(48px,7.4vw,104px);line-height:.92;letter-spacing:-.025em;color:#0F1B33">One partner. Every stage of <span style="color:#003399">the build.</span></h1>
+      <p style="margin-top:28px;font-size:18px;max-width:46ch;color:#4A5266;text-wrap:pretty">Residential, commercial, industrial, water, urban development, and renewable energy projects — delivered with disciplined project management and a safety-first site culture.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:36px">
+        <a href="#contact" style="background:#003399;color:#fff;font-weight:600;padding:15px 26px;border-radius:2px" style-hover="background:#0A1A3C;color:#fff">Start your project</a>
+        <a href="#projects" style="color:#0F1B33;font-weight:600;padding:15px 26px;border:1px solid #0F1B33;border-radius:2px" style-hover="background:#0F1B33;color:#fff">See the work</a>
+      </div>
+    </div>
+    <figure style="position:relative">
+      <span ref="{{ heroImgRef }}" style="display:block;position:relative;overflow:hidden;aspect-ratio:4/3.3;background:#0A1A3C;will-change:transform">
+        <span role="img" aria-label="Drone view of NAKOS Place, a completed 44 BRICKS mixed-use building" style="position:absolute;inset:0;background:#0A1A3C url(assets/img32.jpg) center/cover no-repeat;transition:opacity 1.8s ease, transform 9s linear;opacity:{{ hs.o0 }};transform:scale({{ hs.z0 }})"></span>
+        <span role="img" aria-label="Villa Adel, a completed 44 BRICKS residence" style="position:absolute;inset:0;background:#0A1A3C url(assets/img36.jpg) center/cover no-repeat;transition:opacity 1.8s ease, transform 9s linear;opacity:{{ hs.o1 }};transform:scale({{ hs.z1 }})"></span>
+        <span role="img" aria-label="Cladding and finishes on a 44 BRICKS building" style="position:absolute;inset:0;background:#0A1A3C url(assets/img34.jpg) center/cover no-repeat;transition:opacity 1.8s ease, transform 9s linear;opacity:{{ hs.o2 }};transform:scale({{ hs.z2 }})"></span>
+        <span role="img" aria-label="Upper floors rising on a 44 BRICKS site" style="position:absolute;inset:0;background:#0A1A3C url(assets/img19.jpg) center/cover no-repeat;transition:opacity 1.8s ease, transform 9s linear;opacity:{{ hs.o3 }};transform:scale({{ hs.z3 }})"></span>
+        <span role="img" aria-label="Aerial view of a 44 BRICKS site being set out" style="position:absolute;inset:0;background:#0A1A3C url(assets/img4.jpg) center/cover no-repeat;transition:opacity 1.8s ease, transform 9s linear;opacity:{{ hs.o4 }};transform:scale({{ hs.z4 }})"></span>
+      </span>
+      <figcaption style="position:absolute;left:0;bottom:0;display:flex;align-items:center;gap:20px;background:#F4F2EE;padding:12px 16px 0 0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#4A5266">
+        <span>{{ hsCap }}</span>
+        <span style="display:flex;gap:4px">
+          <sc-for list="{{ hsDots }}" as="d" hint-placeholder-count="5">
+            <button onClick="{{ d.onClick }}" aria-label="{{ d.aria }}" style="cursor:pointer;width:22px;height:20px;background:transparent;border:0;padding:8px 0"><span style="display:block;height:3px;background:{{ d.c }}"></span></button>
+          </sc-for>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1px solid #0F1B33;margin-top:clamp(40px,5vw,64px)">
+    <div style="padding:22px 20px 28px 0"><b style="display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:32px;line-height:1"><span data-count="3">3</span>+ yrs</b><span style="font-size:14px;color:#4A5266">Track record of delivery</span></div>
+    <div style="padding:22px 20px 28px 0"><b style="display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:32px;line-height:1"><span data-count="6">6</span> sectors</b><span style="font-size:14px;color:#4A5266">Residential to renewable energy</span></div>
+    <div style="padding:22px 20px 28px 0"><b style="display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:32px;line-height:1">Safety-first</b><span style="font-size:14px;color:#4A5266">Compliant, inspected site teams</span></div>
+    <div style="padding:22px 20px 28px 0"><b style="display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:32px;line-height:1">Nationwide</b><span style="font-size:14px;color:#4A5266">Urban &amp; emerging communities</span></div>
+  </div>
+</section>
+</sc-if>
+<sc-if value="{{ heroFull }}" hint-placeholder-val="{{ false }}">
+<section id="top" style="position:relative;min-height:min(88vh,820px);display:flex;align-items:flex-end;color:#fff;background:#0A1A3C">
+  <img src="assets/img0.jpg" alt="44 BRICKS site team walking through an active residential development" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,60,.25) 0%,rgba(10,26,60,.88) 78%)"></div>
+  <div style="position:relative;max-width:1240px;width:100%;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:24px">CONSTRUCTION &amp; INFRASTRUCTURE — GHANA</p>
+    <h1 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 115;font-size:clamp(48px,8vw,120px);line-height:.92;letter-spacing:-.025em;max-width:14ch">One partner. Every stage of the build.</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-end;justify-content:space-between;margin-top:32px">
+      <p style="font-size:18px;max-width:48ch;color:#DCE3F0;text-wrap:pretty">Residential, commercial, industrial, water, urban development, and renewable energy projects — delivered with disciplined project management and a safety-first site culture.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#contact" style="background:#C9972C;color:#0A1A3C;font-weight:600;padding:15px 26px;border-radius:2px" style-hover="background:#E3B75B;color:#0A1A3C">Start your project</a>
+        <a href="#projects" style="color:#fff;font-weight:600;padding:15px 26px;border:1px solid rgba(255,255,255,.6);border-radius:2px" style-hover="background:#fff;color:#0A1A3C">See the work</a>
+      </div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<div aria-hidden="true" style="background:#003399;color:#fff;padding:16px 0;overflow:hidden">{{ marqueeEl }}</div>
+
+<section id="brandfilm" style="background:#0A1A3C;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:28px">
+      <div>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:16px">BRAND FILM</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(32px,4.6vw,60px);line-height:.98;letter-spacing:-.02em">Strong foundations. Lasting impact.</h2>
+      </div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:#B9C8EC">00:46</p>
+    </div>
+    <div style="position:relative;width:100%;aspect-ratio:16/9;background:#08142F;border:1px solid rgba(255,255,255,.16);overflow:hidden">
+      <iframe src="Brand%20Film.dc.html" title="44 BRICKS brand film" loading="lazy" allow="autoplay; fullscreen" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="watch" style="background:#F4F2EE;border-bottom:1px solid #DAD6CD">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:28px">
+      <div>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:16px">ON YOUTUBE</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(32px,4.6vw,60px);line-height:.98;letter-spacing:-.02em;max-width:16ch">See 44 BRICKS at work</h2>
+      </div>
+      <a href="https://www.youtube.com/@44Bricksconstruction?sub_confirmation=1" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#0A1A3C;color:#fff;font-weight:600;padding:14px 22px;border-radius:2px" style-hover="background:#003399;color:#fff">
+        <span style="width:10px;height:10px;background:#C9972C"></span>Subscribe to our channel
+      </a>
+    </div>
+    <div data-no-bricks="" style="position:relative;width:100%;aspect-ratio:16/9;background:#0A1A3C;overflow:hidden">
+      <iframe ref="{{ ytRef }}" src="https://www.youtube-nocookie.com/embed/Mqz2TafFRgw?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Mqz2TafFRgw&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1" title="44 BRICKS on YouTube" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#4A5266">
+      <span>{{ ytNote }}</span>
+      <a href="https://www.youtube.com/@44Bricksconstruction/videos" target="_blank" rel="noopener" style="color:#003399" style-hover="color:#0A1A3C">ALL VIDEOS ON @44BRICKSCONSTRUCTION →</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+  <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,72px)">
+    <p style="flex:1 1 220px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399">01 — WHO WE ARE</p>
+    <div style="flex:3 1 min(100%,520px);max-width:820px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:600;font-variation-settings:'wdth' 100;font-size:clamp(24px,3vw,38px);line-height:1.22;letter-spacing:-.01em;text-wrap:pretty">44 BRICKS is a construction and infrastructure company with over three years of delivering quality, innovation, and reliability across Ghana — built on precision, grounded in community.</p>
+      <p style="margin-top:24px;font-size:17px;color:#4A5266;max-width:60ch;text-wrap:pretty">Our expertise spans residential, commercial, and industrial construction, water management systems, urban development, and renewable energy infrastructure — combining technical excellence with environmental responsibility.</p>
+      <p style="margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#0F1B33">STRONG FOUNDATIONS. LASTING IMPACT.</p>
+      <a href="About.dc.html" style="display:inline-flex;margin-top:24px;font-weight:600;color:#003399;border-bottom:1px solid #003399;padding-bottom:2px" style-hover="color:#0A1A3C;border-bottom-color:#0A1A3C">Our story, vision &amp; team →</a>
+    </div>
+  </div>
+
+  <div style="margin-top:clamp(56px,7vw,96px);display:flex;flex-wrap:wrap;gap:40px clamp(32px,5vw,72px)">
+    <div style="flex:1 1 220px">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(30px,3.6vw,48px);line-height:1;letter-spacing:-.02em">44 Bricks Construction at a glance</h2>
+      <p style="margin-top:16px;color:#4A5266;max-width:34ch;text-wrap:pretty">A forward-thinking construction and infrastructure company delivering innovative, sustainable, high-quality projects that strengthen communities and drive economic growth.</p>
+    </div>
+    <dl style="flex:3 1 min(100%,560px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0 32px;border-top:1px solid #0F1B33">
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">COMPANY</dt><dd style="font-weight:600">44 BRICKS — Construction &amp; Infrastructure Development</dd></div>
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">ESTABLISHED</dt><dd style="font-weight:600">Over three years of delivery</dd></div>
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">HEADQUARTERS</dt><dd style="font-weight:600">Ghana — operating nationwide</dd></div>
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">SECTORS</dt><dd style="font-weight:600">Construction · Infrastructure · Energy · Project services</dd></div>
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">CLIENTS</dt><dd style="font-weight:600">Private owners, businesses, organisations &amp; government agencies</dd></div>
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">LEADERSHIP</dt><dd style="font-weight:600">Ronald Etornam Gamor, CEO · Oliver Tei-Mensah Ackam, COO</dd></div>
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">PHONE</dt><dd style="font-weight:600"><a href="tel:+233543100015" style="color:#0F1B33" style-hover="color:#003399">+233 543 100 015</a></dd></div>
+      <div style="padding:18px 0;border-bottom:1px solid #DAD6CD"><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">EMAIL</dt><dd style="font-weight:600;overflow-wrap:anywhere"><a href="mailto:info@44bricksconstruction.com" style="color:#0F1B33" style-hover="color:#003399"><!--email_off-->info@44bricksconstruction.com<!--/email_off--></a><br><a href="mailto:44bricksconstruction@gmail.com" style="color:#0F1B33" style-hover="color:#003399"><!--email_off-->44bricksconstruction@gmail.com<!--/email_off--></a></dd></div>
+    </dl>
+  </div>
+
+  <div style="margin-top:clamp(48px,6vw,80px);display:flex;flex-wrap:wrap;gap:40px clamp(32px,5vw,72px)">
+    <div style="flex:1 1 220px">
+      <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 108;font-size:clamp(24px,2.6vw,32px);line-height:1.08">What we do</h3>
+    </div>
+    <ul style="flex:3 1 min(100%,560px);list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0 32px">
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Residential building construction</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Commercial building development</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Industrial infrastructure projects</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Water management &amp; distribution systems</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Urban development &amp; civil engineering works</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Renewable energy infrastructure</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Project planning &amp; management</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Renovation &amp; maintenance services</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">General construction contracting &amp; consultancy</li>
+      <li style="padding:12px 0;border-bottom:1px solid #DAD6CD">Drone site monitoring &amp; video progress updates</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1px;background:#DAD6CD;border:1px solid #DAD6CD">
+    <div style="background:#0A1A3C;color:#fff;padding:clamp(24px,3vw,40px)">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#E3B75B;margin-bottom:14px">OUR VISION</p>
+      <p style="font-size:18px;line-height:1.5;text-wrap:pretty">To be a leading construction and infrastructure company recognized for excellence, innovation, and sustainable development — shaping stronger communities and a better future through world-class construction solutions.</p>
+    </div>
+    <div style="background:#0A1A3C;color:#fff;padding:clamp(24px,3vw,40px)">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#E3B75B;margin-bottom:14px">OUR MISSION</p>
+      <p style="font-size:18px;line-height:1.5;text-wrap:pretty">To deliver exceptional construction and infrastructure projects through quality workmanship, innovative technologies, and sustainable practices, while exceeding client expectations and contributing positively to economic and community development.</p>
+    </div>
+    <div style="background:#003399;color:#fff;padding:clamp(24px,3vw,40px)">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#E3B75B;margin-bottom:14px">OUR COMMITMENT</p>
+      <p style="font-size:18px;line-height:1.5;text-wrap:pretty">Every structure tells a story, and every project is an opportunity to create lasting value — durable, functional, sustainable infrastructure and communities where people live, work, and thrive.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team-reel" aria-label="Our team on site" style="position:relative;height:clamp(420px,58vw,760px);overflow:hidden;background:#0A1A3C;color:#fff">
+  <span role="img" aria-label="44 BRICKS engineers in conversation on site" style="position:absolute;inset:0;background:#0A1A3C url(assets/team1.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ tr.o0 }};transform:scale({{ tr.z0 }})"></span>
+  <span role="img" aria-label="44 BRICKS site team walking a residential development" style="position:absolute;inset:0;background:#0A1A3C url(assets/team2.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ tr.o1 }};transform:scale({{ tr.z1 }})"></span>
+  <span role="img" aria-label="44 BRICKS team reviewing progress inside a blockwork structure" style="position:absolute;inset:0;background:#0A1A3C url(assets/team3.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ tr.o2 }};transform:scale({{ tr.z2 }})"></span>
+  <span role="img" aria-label="44 BRICKS team inspecting a completed home" style="position:absolute;inset:0;background:#0A1A3C url(assets/team4.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ tr.o3 }};transform:scale({{ tr.z3 }})"></span>
+  <span role="img" aria-label="44 BRICKS team at the gate of a delivered residence" style="position:absolute;inset:0;background:#0A1A3C url(assets/team5.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ tr.o4 }};transform:scale({{ tr.z4 }})"></span>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,26,60,.85) 0%,rgba(10,26,60,.25) 60%,rgba(10,26,60,0) 100%)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;max-width:1240px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(20px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:14px">OUR TEAM</p>
+    <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(34px,5vw,68px);line-height:.96;letter-spacing:-.02em;max-width:13ch">The people behind every brick.</h2>
+    <a href="Team.dc.html" style="display:inline-block;margin-top:22px;background:#C9972C;color:#0A1A3C;font-weight:600;padding:13px 22px;border-radius:2px" style-hover="background:#E3B75B;color:#0A1A3C">Meet the team</a>
+  </div>
+</section>
+
+<section id="projects" style="background:#fff;border-top:1px solid #DAD6CD;border-bottom:1px solid #DAD6CD">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">02 — FEATURED PROJECTS</p>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:36px">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.02em;max-width:12ch">Start to finish, from the air.</h2>
+      <p style="font-size:17px;color:#4A5266;max-width:44ch;text-wrap:pretty">Follow real developments through every phase, documented by our drone monitoring team. Pick a project and step through each stage.</p>
+    </div>
+
+    <div role="tablist" aria-label="Featured projects" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <button role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.onClick }}" style="cursor:pointer;font-size:15px;font-weight:600;padding:10px 18px;border-radius:2px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};display:flex;align-items:center;gap:10px">{{ t.name }}<sc-if value="{{ t.ongoing }}" hint-placeholder-val="{{ false }}"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;padding:2px 6px;border:1px solid currentColor;border-radius:2px">ONGOING</span></sc-if></button>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;background:#0A1A3C">
+      <div style="position:relative;aspect-ratio:4/3;overflow:hidden;flex:2 1 min(100%,560px);min-width:0">
+        <sc-for list="{{ stageImgs }}" as="im" hint-placeholder-count="1">
+          <span role="img" aria-label="{{ im.alt }}" style="display:block;background:#0A1A3C url({{ im.src }}) center/cover no-repeat;position:absolute;inset:0;width:100%;height:100%;transition:opacity .6s ease;opacity:{{ im.op }}"></span>
+        </sc-for>
+      </div>
+      <div style="flex:1 1 300px;padding:clamp(24px,3vw,40px);color:#fff;display:flex;flex-direction:column;gap:20px;min-width:0">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B">{{ phaseCount }}</p>
+        <div style="flex:1">
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 108;font-size:clamp(24px,2.4vw,32px);line-height:1.08;margin-bottom:12px">{{ phaseTitle }}</h3>
+          <p style="color:#C3CDE2;text-wrap:pretty">{{ phaseText }}</p>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button onClick="{{ prev }}" aria-label="Previous phase" style="cursor:pointer;width:48px;height:48px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font-size:18px;border-radius:2px" style-hover="background:rgba(255,255,255,.1)">←</button>
+          <button onClick="{{ togglePlay }}" aria-label="Play or pause timeline" style="cursor:pointer;height:48px;padding:0 20px;border:0;background:#C9972C;color:#0A1A3C;font-weight:600;font-size:14px;border-radius:2px;flex:1" style-hover="background:#E3B75B">{{ playLabel }}</button>
+          <button onClick="{{ next }}" aria-label="Next phase" style="cursor:pointer;width:48px;height:48px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font-size:18px;border-radius:2px" style-hover="background:rgba(255,255,255,.1)">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div role="tablist" aria-label="Construction phases" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(76px,1fr));gap:4px;margin-top:4px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="10">
+        <button role="tab" aria-label="{{ s.aria }}" onClick="{{ s.onClick }}" style="cursor:pointer;background:transparent;border:0;border-top:3px solid {{ s.bar }};padding:10px 0 0;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:{{ s.fg }}">{{ s.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-start;justify-content:space-between">
+      <p style="flex:1 1 320px;max-width:72ch;color:#4A5266;text-wrap:pretty">{{ blurb }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="{{ projectUrl }}" style="font-weight:600;color:#fff;background:#0F1B33;padding:13px 20px;border-radius:2px" style-hover="background:#003399;color:#fff">View full project →</a>
+        <a href="Projects.dc.html" style="font-weight:600;color:#0F1B33;border:1px solid #0F1B33;padding:12px 20px;border-radius:2px" style-hover="background:#0F1B33;color:#fff">All projects</a>
+      </div>
+    </div>
+
+    <form action="contact.php" method="POST" onSubmit="{{ submitInterest }}" noValidate="{{ true }}" style="margin-top:48px;padding-top:32px;border-top:1px solid #0F1B33;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:20px 24px;align-items:end">
+      <input type="hidden" name="_subject" value="Project Interest — Website">
+      <input type="text" name="_honey" style="display:none" tabIndex="-1" autoComplete="off">
+      <p style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;line-height:1.1">Register your interest</p>
+      <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">FULL NAME<input name="name" type="text" autoComplete="name" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none" style-focus="border-bottom-color:#003399"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">EMAIL<input name="email" type="email" autoComplete="email" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none" style-focus="border-bottom-color:#003399"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">I AM INTERESTED IN<select name="project" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none">
+        <option>NAKOS Courts — two-bedroom townhouse</option>
+        <option>A renovation like Project X</option>
+        <option>NAKOS Place — retail / showroom unit</option>
+        <option>NAKOS Place — apartment or office</option>
+        <option>A home like Villa Adel</option>
+        <option>A custom build of my own</option>
+      </select></label>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button type="submit" style="cursor:pointer;background:#003399;color:#fff;border:0;font-weight:600;font-size:15px;padding:14px 22px;border-radius:2px" style-hover="background:#0A1A3C">Register interest</button>
+        <span aria-live="polite" style="font-size:13px;color:#003399;min-height:1em">{{ statusInterest }}</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="aerial" aria-label="Completed work — aerial photography" onMouseEnter="{{ showPause }}" onMouseLeave="{{ showResume }}" style="position:relative;height:clamp(420px,62vw,780px);overflow:hidden;background:#0A1A3C">
+  <sc-for list="{{ slides }}" as="sl" hint-placeholder-count="1">
+    <span role="img" aria-label="{{ sl.alt }}" style="display:block;background:#0A1A3C url({{ sl.src }}) center/cover no-repeat;position:absolute;inset:0;width:100%;height:100%;opacity:{{ sl.op }};transform:scale({{ sl.scale }});transition:opacity 1.1s ease, transform 7.5s linear"></span>
+  </sc-for>
+  <div style="position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(180deg,rgba(10,26,60,0) 0%,rgba(10,26,60,.85) 100%);pointer-events:none"></div>
+  <div style="position:absolute;inset:auto 0 0 0;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px) clamp(24px,4vw,48px);color:#fff;display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-end;justify-content:space-between">
+    <div style="max-width:560px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:12px">AERIAL RECORD — {{ showCount }}</p>
+      <h3 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 110;font-size:clamp(28px,3.6vw,48px);line-height:1;letter-spacing:-.015em;margin-bottom:12px">{{ showTitle }}</h3>
+      <p style="color:#DCE3F0;text-wrap:pretty">{{ showText }}</p>
+      <a href="#projects" style="display:inline-block;margin-top:20px;background:#C9972C;color:#0A1A3C;font-weight:600;padding:12px 20px;border-radius:2px" style-hover="background:#E3B75B;color:#0A1A3C">Enquire about this project</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-end">
+      <div style="display:flex;gap:8px">
+        <button onClick="{{ showPrev }}" aria-label="Previous slide" style="cursor:pointer;width:48px;height:48px;border:1px solid rgba(255,255,255,.5);background:rgba(10,26,60,.35);color:#fff;font-size:18px;border-radius:2px" style-hover="background:#fff;color:#0A1A3C">←</button>
+        <button onClick="{{ showNext }}" aria-label="Next slide" style="cursor:pointer;width:48px;height:48px;border:1px solid rgba(255,255,255,.5);background:rgba(10,26,60,.35);color:#fff;font-size:18px;border-radius:2px" style-hover="background:#fff;color:#0A1A3C">→</button>
+      </div>
+      <div style="display:flex;gap:6px">
+        <sc-for list="{{ slides }}" as="d" hint-placeholder-count="7">
+          <button onClick="{{ d.onClick }}" aria-label="{{ d.aria }}" style="cursor:pointer;width:32px;height:20px;background:transparent;border:0;padding:8px 0;display:block"><span style="display:block;height:3px;background:rgba(255,255,255,.3);position:relative;overflow:hidden"><span style="position:absolute;inset:0 auto 0 0;background:#E3B75B;width:{{ d.fill }};transition:width {{ d.dur }} linear"></span></span></button>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+  <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:flex-start">
+    <div style="flex:1 1 300px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">03 — SERVICES</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.02em">What we build</h2>
+      <p style="margin-top:20px;font-size:17px;color:#4A5266;max-width:36ch;text-wrap:pretty">Full-lifecycle construction and infrastructure services for private, commercial, and public-sector clients.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px"><a href="#contact" style="background:#003399;color:#fff;font-weight:600;padding:14px 22px;border-radius:2px" style-hover="background:#0A1A3C;color:#fff">Get a quote</a><a href="Services.dc.html" style="color:#0F1B33;font-weight:600;padding:13px 22px;border:1px solid #0F1B33;border-radius:2px" style-hover="background:#0F1B33;color:#fff">Service details</a></div>
+    </div>
+    <ol style="list-style:none;flex:2 1 min(100%,560px);border-top:1px solid #0F1B33">
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">01</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Residential Construction</h3><p style="flex:1.2 1 240px;color:#4A5266">Quality homes and residential developments, from foundation to finishing.</p></li>
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">02</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Commercial Development</h3><p style="flex:1.2 1 240px;color:#4A5266">Office, retail, and mixed-use buildings built for business.</p></li>
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">03</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Industrial Infrastructure</h3><p style="flex:1.2 1 240px;color:#4A5266">Facilities and structures engineered for demanding operations.</p></li>
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">04</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Water Management</h3><p style="flex:1.2 1 240px;color:#4A5266">Supply, distribution, and drainage systems that communities rely on.</p></li>
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">05</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Urban Development</h3><p style="flex:1.2 1 240px;color:#4A5266">Civil works and planning that shape growing neighbourhoods.</p></li>
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">06</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Renewable Energy</h3><p style="flex:1.2 1 240px;color:#4A5266">Sustainable energy infrastructure for a lower-carbon future.</p></li>
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">07</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Project Management</h3><p style="flex:1.2 1 240px;color:#4A5266">Planning, supervision, and design coordination on client-led builds.</p></li>
+      <li style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:22px 0;border-bottom:1px solid #DAD6CD;align-items:baseline"><span style="flex:0 0 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#003399">08</span><h3 style="flex:1 1 200px;font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;line-height:1.2">Renovation &amp; Maintenance</h3><p style="flex:1.2 1 240px;color:#4A5266">Refurbishment and upkeep that extend the life of every structure.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="hub" style="background:#0A1A3C;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:20px">04 — PROPERTY HUB</p>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:56px">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.02em;max-width:14ch">Everything for your build, in one place.</h2>
+      <p style="font-size:17px;color:#C3CDE2;max-width:44ch;text-wrap:pretty">Build packages, live site monitoring, and progress you can see — without visiting site.</p>
+    </div>
+    <div ref="{{ hubRef }}" style="position:relative;margin-bottom:24px;border:1px solid rgba(255,255,255,.16);background:#08142F;overflow:hidden">
+      <canvas ref="{{ siteCanvasRef }}" aria-label="Interactive 3D model of a 44 BRICKS construction site with a tower crane, rising building, materials, and a monitoring drone" style="display:block;width:100%;height:clamp(360px,52vw,580px);cursor:grab;touch-action:pan-y"></canvas>
+      <div style="position:absolute;top:16px;right:16px;z-index:3;display:{{ hubCtrlDisplay }};gap:6px">
+        <button onClick="{{ siteView }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;padding:10px 14px;border-radius:2px;border:1px solid {{ siteBtnBorder }};background:{{ siteBtnBg }};color:{{ siteBtnFg }}">SITE VIEW</button>
+        <button onClick="{{ droneView }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;padding:10px 14px;border-radius:2px;border:1px solid {{ droneBtnBorder }};background:{{ droneBtnBg }};color:{{ droneBtnFg }}">DRONE VIEW</button>
+      </div>
+      <sc-if value="{{ droneMode }}" hint-placeholder-val="{{ false }}">
+        <div aria-hidden="true" style="position:absolute;inset:0;z-index:2;pointer-events:none">
+          <span style="position:absolute;top:14px;left:14px;width:34px;height:34px;border-top:2px solid #E3B75B;border-left:2px solid #E3B75B"></span>
+          <span style="position:absolute;top:14px;right:14px;width:34px;height:34px;border-top:2px solid #E3B75B;border-right:2px solid #E3B75B"></span>
+          <span style="position:absolute;bottom:14px;left:14px;width:34px;height:34px;border-bottom:2px solid #E3B75B;border-left:2px solid #E3B75B"></span>
+          <span style="position:absolute;bottom:14px;right:14px;width:34px;height:34px;border-bottom:2px solid #E3B75B;border-right:2px solid #E3B75B"></span>
+          <span style="position:absolute;top:22px;left:62px;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#E3B75B">{{ recDot }}DRONE CAM 01 — LIVE FEED</span>
+        </div>
+      </sc-if>
+      <div style="position:absolute;left:16px;right:16px;bottom:16px;z-index:3;display:{{ hubCtrlDisplay }};flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+        <div style="display:flex;align-items:center;gap:12px;flex:1;max-width:440px;min-width:240px;background:rgba(8,20,47,.75);padding:8px 12px;border-radius:2px">
+          <label for="phaseSlider" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#C3CDE2;white-space:nowrap">BUILD PHASE</label>
+          <input id="phaseSlider" ref="{{ sliderRef }}" type="range" min="0" max="100" defaultValue="0" onInput="{{ onPhase }}" aria-label="Scrub construction phase of the 3D model" style="flex:1;accent-color:#C9972C;cursor:pointer">
+          <button onClick="{{ phaseAuto }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:6px 10px;border-radius:2px;border:1px solid {{ autoBorder }};background:{{ autoBg }};color:{{ autoFg }}">AUTO</button>
+        </div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#C3CDE2;background:rgba(8,20,47,.75);padding:8px 12px;border-radius:2px">{{ orbitHint }}</span>
+      </div>
+      <sc-if value="{{ noGL }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:4;background:#08142F url(assets/img19.jpg) center/cover no-repeat">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,47,.1) 40%,rgba(8,20,47,.85) 100%)"></div>
+          <p style="position:absolute;left:20px;right:20px;bottom:20px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:#fff">DRONE CAPTURE — ACTIVE 44 BRICKS SITE</p>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16)">
+      <div data-pkg="" style="background:#0A1A3C;padding:32px 28px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8FA2C8;margin-bottom:16px">HUB-01 / BUILD</p>
+        <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin-bottom:10px">Build Packages</h3>
+        <p style="color:#C3CDE2;margin-bottom:20px">Structured packages that take you from land to keys with one accountable team.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px"><li>— Residential builds, starter to executive</li><li>— Commercial shells &amp; fit-outs</li><li>— Renovation &amp; extension packages</li></ul>
+      </div>
+      <div data-pkg="" style="background:#0A1A3C;padding:32px 28px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8FA2C8;margin-bottom:16px">HUB-02 / MONITOR</p>
+        <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin-bottom:10px">Drone Site Monitoring</h3>
+        <p style="color:#C3CDE2;margin-bottom:20px">Scheduled flights document your project from above, so you see progress from anywhere.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px"><li>— Aerial progress photography</li><li>— Milestone flyover videos</li><li>— Site overview for planning &amp; QA</li></ul>
+      </div>
+      <div data-pkg="" style="background:#0A1A3C;padding:32px 28px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8FA2C8;margin-bottom:16px">HUB-03 / REVIEW</p>
+        <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin-bottom:10px">Video Progress Updates</h3>
+        <p style="color:#C3CDE2;margin-bottom:20px">Regular walkthrough and flyover films keep every stakeholder aligned, wherever they are.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px"><li>— Site walkthrough films</li><li>— Drone flyover reels</li><li>— Handover documentation</li></ul>
+      </div>
+    </div>
+
+    <form id="hubConsult" action="contact.php" method="POST" onSubmit="{{ submitHub }}" noValidate="{{ true }}" style="margin-top:64px;display:flex;flex-wrap:wrap;gap:40px clamp(32px,5vw,72px)">
+      <input type="hidden" name="_subject" value="Property Hub — Build Consultation Request">
+      <input type="text" name="_honey" style="display:none" tabIndex="-1" autoComplete="off">
+      <div style="flex:1 1 280px">
+        <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 108;font-size:clamp(28px,3vw,40px);line-height:1.05">Book a build consultation</h3>
+        <a href="Hub.dc.html" style="display:inline-flex;margin-top:20px;font-weight:600;color:#E3B75B;border-bottom:1px solid #E3B75B;padding-bottom:2px" style-hover="color:#fff;border-bottom-color:#fff">Explore the Property Hub →</a>
+        <p style="margin-top:14px;color:#C3CDE2;max-width:36ch">Step one of every 44 BRICKS project. Tell us about your site and we'll come back with next steps.</p>
+      </div>
+      <div style="flex:2 1 min(100%,520px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">FULL NAME<input name="name" type="text" autoComplete="name" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none" style-focus="border-bottom-color:#E3B75B"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">PHONE<input name="phone" type="tel" autoComplete="tel" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none" style-focus="border-bottom-color:#E3B75B"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">EMAIL<input name="email" type="email" autoComplete="email" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none" style-focus="border-bottom-color:#E3B75B"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">SERVICE<select name="service" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:#0A1A3C;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none">
+          <option>Build package — residential</option>
+          <option>Build package — commercial</option>
+          <option>Drone site monitoring</option>
+          <option>Video progress updates</option>
+          <option>Renovation &amp; maintenance</option>
+        </select></label>
+        <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">TELL US ABOUT YOUR PROJECT OR SITE<textarea name="message" required="{{ true }}" rows="3" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none;resize:vertical" style-focus="border-bottom-color:#E3B75B"></textarea></label>
+        <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+          <button type="submit" style="cursor:pointer;background:#C9972C;color:#0A1A3C;border:0;font-weight:600;font-size:15px;padding:14px 24px;border-radius:2px" style-hover="background:#E3B75B">Request consultation</button>
+          <span aria-live="polite" style="font-size:14px;color:#E3B75B">{{ statusHub }}</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="film" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">05 — FILM</p>
+  <div style="display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:40px">
+    <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.02em">Watch the work</h2>
+    <p style="font-size:17px;color:#4A5266;max-width:40ch">Site walkthroughs and drone flyovers from active projects.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px">
+    <button onClick="{{ openNakosPlace }}" style="cursor:pointer;background:transparent;border:0;padding:0;text-align:left;color:#0F1B33">
+      <span style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#0A1A3C"><img src="assets/img39.jpg" alt="NAKOS Place video thumbnail" style="width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#003399;font-size:16px;padding-left:3px">▶</span></span>
+      <span style="display:flex;justify-content:space-between;gap:12px;padding-top:14px;border-bottom:1px solid #DAD6CD;padding-bottom:12px"><b style="font-family:'Archivo',sans-serif;font-size:19px">NAKOS Place</b><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#4A5266;align-self:center">MIXED-USE · 01:01</span></span>
+    </button>
+    <button onClick="{{ openVillaAdel }}" style="cursor:pointer;background:transparent;border:0;padding:0;text-align:left;color:#0F1B33">
+      <span style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#0A1A3C"><img src="assets/img40.jpg" alt="Villa Adel video thumbnail" style="width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#003399;font-size:16px;padding-left:3px">▶</span></span>
+      <span style="display:flex;justify-content:space-between;gap:12px;padding-top:14px;border-bottom:1px solid #DAD6CD;padding-bottom:12px"><b style="font-family:'Archivo',sans-serif;font-size:19px">Villa Adel</b><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#4A5266;align-self:center">RESIDENTIAL · 00:38</span></span>
+    </button>
+    <button onClick="{{ openNakosCourts }}" style="cursor:pointer;background:transparent;border:0;padding:0;text-align:left;color:#0F1B33">
+      <span style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#0A1A3C"><img src="assets/img41.jpg" alt="NAKOS Courts video thumbnail" style="width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#003399;font-size:16px;padding-left:3px">▶</span></span>
+      <span style="display:flex;justify-content:space-between;gap:12px;padding-top:14px;border-bottom:1px solid #DAD6CD;padding-bottom:12px"><b style="font-family:'Archivo',sans-serif;font-size:19px">NAKOS Courts</b><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#4A5266;align-self:center">TOWNHOUSES · 00:40</span></span>
+    </button>
+    <button onClick="{{ openProjectX }}" style="cursor:pointer;background:transparent;border:0;padding:0;text-align:left;color:#0F1B33">
+      <span style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#0A1A3C"><img src="assets/img42.jpg" alt="Project X video thumbnail" style="width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#003399;font-size:16px;padding-left:3px">▶</span></span>
+      <span style="display:flex;justify-content:space-between;gap:12px;padding-top:14px;border-bottom:1px solid #DAD6CD;padding-bottom:12px"><b style="font-family:'Archivo',sans-serif;font-size:19px">Project X</b><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#4A5266;align-self:center">RENOVATION · 00:49</span></span>
+    </button>
+  </div>
+</section>
+
+<section id="onsite" style="background:#fff;border-top:1px solid #DAD6CD">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">06 — ON SITE</p>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:40px">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.02em">Proof in the ground</h2>
+      <p style="font-size:17px;color:#4A5266;max-width:44ch;text-wrap:pretty">Regular inspections and quality walkthroughs on every active project — this is what accountability looks like on site.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px">
+      <figure style="flex:2 1 min(100%,520px);min-width:0"><img src="assets/img43.jpg" alt="44 BRICKS team reviewing plans beside a residential build" style="width:100%;aspect-ratio:3/2;object-fit:cover"><figcaption style="padding-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#4A5266">SITE WALK — INSPECTION</figcaption></figure>
+      <div style="flex:1 1 260px;display:grid;gap:16px;align-content:start">
+        <figure><img src="assets/img44.jpg" alt="Site briefing between 44 BRICKS engineers" style="width:100%;aspect-ratio:3/2;object-fit:cover"><figcaption style="padding-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#4A5266">SITE BRIEFING — COORDINATION</figcaption></figure>
+        <figure><img src="assets/img45.jpg" alt="44 BRICKS engineers discussing progress at an active development" style="width:100%;aspect-ratio:3/2;object-fit:cover"><figcaption style="padding-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#4A5266">PROGRESS REVIEW — QA</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">07 — HOW WE WORK</p>
+  <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.02em;margin-bottom:48px">From first meeting to handover</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px;border-top:1px solid #0F1B33;padding-top:28px">
+    <div><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">01</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Consult</h3><p style="color:#4A5266">We listen first — your goals, site, and budget, before anything is drawn.</p></div>
+    <div><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">02</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Design &amp; plan</h3><p style="color:#4A5266">Detailed planning, design coordination, and clear timelines agreed before ground breaks.</p></div>
+    <div><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">03</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Build</h3><p style="color:#4A5266">Skilled crews and hands-on supervision, with regular client walkthroughs.</p></div>
+    <div><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">04</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Handover &amp; maintain</h3><p style="color:#4A5266">A clean handover, plus renovation and maintenance support long after completion.</p></div>
+  </div>
+  <div style="margin-top:80px;display:flex;flex-wrap:wrap;gap:32px clamp(32px,5vw,72px)">
+    <h3 style="flex:1 1 260px;font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 108;font-size:clamp(26px,2.6vw,34px);line-height:1.08">The standards behind every brick</h3>
+    <dl style="flex:2 1 min(100%,520px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:0 32px">
+      <div style="padding:16px 0;border-bottom:1px solid #DAD6CD"><dt style="font-weight:600">Excellence</dt><dd style="color:#4A5266;font-size:15px">Superior workmanship and project quality.</dd></div>
+      <div style="padding:16px 0;border-bottom:1px solid #DAD6CD"><dt style="font-weight:600">Integrity</dt><dd style="color:#4A5266;font-size:15px">Transparency and accountability, always.</dd></div>
+      <div style="padding:16px 0;border-bottom:1px solid #DAD6CD"><dt style="font-weight:600">Innovation</dt><dd style="color:#4A5266;font-size:15px">Modern methods and creative solutions.</dd></div>
+      <div style="padding:16px 0;border-bottom:1px solid #DAD6CD"><dt style="font-weight:600">Sustainability</dt><dd style="color:#4A5266;font-size:15px">Building responsibly for future generations.</dd></div>
+      <div style="padding:16px 0;border-bottom:1px solid #DAD6CD"><dt style="font-weight:600">Safety</dt><dd style="color:#4A5266;font-size:15px">People, assets, and environment come first.</dd></div>
+      <div style="padding:16px 0;border-bottom:1px solid #DAD6CD"><dt style="font-weight:600">Reliability</dt><dd style="color:#4A5266;font-size:15px">On time, to specification, every time.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="team" style="background:#fff;border-top:1px solid #DAD6CD">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">08 — LEADERSHIP</p>
+    <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.02em;margin-bottom:48px">The people driving 44 BRICKS</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px 24px">
+      <article><img src="assets/img46.jpg" alt="Ronald Etornam Gamor, Chief Executive Officer of 44 BRICKS" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;margin-bottom:16px"><p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">CHIEF EXECUTIVE OFFICER</p><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;margin:4px 0 8px">Ronald Etornam Gamor</h3><p style="font-size:15px;color:#4A5266;text-wrap:pretty">Founder and CEO. Leads company strategy, client relationships, and overall project direction.</p></article>
+      <article><img src="assets/img47.jpg" alt="Oliver Tei-Mensah Ackam, Chief Operating Officer of 44 BRICKS" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;margin-bottom:16px"><p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">CHIEF OPERATING OFFICER</p><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;margin:4px 0 8px">Oliver Tei-Mensah Ackam</h3><p style="font-size:15px;color:#4A5266;text-wrap:pretty">Oversees operations and site execution, keeping builds on schedule, on budget, and to specification.</p></article>
+      <article><img src="assets/img48.jpg" alt="Awuakye Danful, Administrator at 44 BRICKS" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;margin-bottom:16px"><p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">ADMINISTRATOR</p><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;margin:4px 0 8px">Awuakye Danful</h3><p style="font-size:15px;color:#4A5266;text-wrap:pretty">Manages administration and internal coordination — the backbone that keeps projects and people running smoothly.</p></article>
+      <article><img src="assets/img49.jpg" alt="Joseph Adjaloko, GIS Consultant at 44 BRICKS" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;margin-bottom:16px"><p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399">GIS CONSULTANT</p><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;margin:4px 0 8px">Joseph Adjaloko</h3><p style="font-size:15px;color:#4A5266;text-wrap:pretty">Brings GIS and spatial insight to urban development and infrastructure projects.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="partners" data-no-bricks="" style="background:#fff;border-top:1px solid #DAD6CD;border-bottom:1px solid #DAD6CD;overflow:hidden">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(16px,4vw,48px) 32px;display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between">
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:16px">09 — PARTNERS &amp; CLIENTS</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(32px,4.6vw,60px);line-height:.98;letter-spacing:-.02em;max-width:16ch">Built alongside people we trust</h2>
+    </div>
+    <a href="Contact.dc.html?form=partner#forms" style="color:#003399;font-weight:600;padding:12px 0;border-bottom:2px solid #003399" style-hover="color:#0A1A3C;border-color:#0A1A3C">Become a partner →</a>
+  </div>
+  <div style="padding:0 0 clamp(56px,7vw,96px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+    <div onMouseEnter="{{ pPause }}" onMouseLeave="{{ pPlay }}" style="display:flex;gap:16px;width:max-content;animation:marq 40s linear infinite;animation-play-state:{{ pState }}">
+        <span role="img" aria-label="Forte Developments" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-forte.jpg) center/150% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="233 Garage" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-233garage.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="SAN Concepts — Architectural designs and visualization" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-san.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="MTG" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-mtg.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="Quantum LC Ltd — sales, mining contractors, consultancy" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-quantum.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="Forte Developments" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-forte.jpg) center/150% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="233 Garage" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-233garage.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="SAN Concepts — Architectural designs and visualization" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-san.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="MTG" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-mtg.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="Quantum LC Ltd — sales, mining contractors, consultancy" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-quantum.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="Forte Developments" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-forte.jpg) center/150% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="233 Garage" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-233garage.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="SAN Concepts — Architectural designs and visualization" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-san.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="MTG" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-mtg.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="Quantum LC Ltd — sales, mining contractors, consultancy" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-quantum.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="Forte Developments" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-forte.jpg) center/150% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="233 Garage" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-233garage.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="SAN Concepts — Architectural designs and visualization" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#000 url(assets/partner-san.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="MTG" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-mtg.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+        <span role="img" aria-label="Quantum LC Ltd — sales, mining contractors, consultancy" aria-hidden="true" style="flex:0 0 auto;width:clamp(200px,24vw,300px);aspect-ratio:3/2;background:#fff url(assets/partner-quantum.jpeg) center/82% auto no-repeat;border:1px solid #DAD6CD"></span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:#003399;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:48px clamp(32px,6vw,96px)">
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:20px">10 — CONTACT</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(40px,5.6vw,76px);line-height:.95;letter-spacing:-.02em">Let's build the future together.</h2>
+      <dl style="margin-top:48px;display:grid;gap:24px">
+        <div><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#B9C8EC">PHONE</dt><dd style="font-size:22px;font-weight:500"><a href="tel:+233543100015" style="color:#fff" style-hover="color:#E3B75B">+233 543 100 015</a></dd></div>
+        <div><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#B9C8EC">WHATSAPP</dt><dd style="font-size:22px;font-weight:500"><a href="https://wa.me/233543100015?text=Hello%2044%20BRICKS%2C%20I%27d%20like%20a%20construction%20quote." target="_blank" rel="noopener" style="color:#fff" style-hover="color:#E3B75B">+233 54 310 0015</a></dd></div>
+        <div><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#B9C8EC">FOLLOW &amp; MESSAGE</dt><dd style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+          <a href="https://wa.me/233543100015?text=Hello%2044%20BRICKS%2C%20I%27d%20like%20a%20construction%20quote." target="_blank" rel="noopener" aria-label="Chat with 44 BRICKS on WhatsApp" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.4);border-radius:2px;color:#fff;font-weight:600;font-size:14px" style-hover="background:#fff;color:#003399;border-color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"></path></svg>WhatsApp</a>
+          <a href="https://www.instagram.com/44_bricks/" target="_blank" rel="noopener" aria-label="44 BRICKS on Instagram" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.4);border-radius:2px;color:#fff;font-weight:600;font-size:14px" style-hover="background:#fff;color:#003399;border-color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4ZM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM21.9 7.1a5.8 5.8 0 0 0-1.6-4.1 5.8 5.8 0 0 0-4.1-1.6C14.6 1.3 9.4 1.3 7.8 1.4a5.8 5.8 0 0 0-4.1 1.6A5.8 5.8 0 0 0 2.1 7c-.1 1.6-.1 6.8 0 8.4a5.8 5.8 0 0 0 1.6 4.1 5.8 5.8 0 0 0 4.1 1.6c1.6.1 6.8.1 8.4 0a5.8 5.8 0 0 0 4.1-1.6 5.8 5.8 0 0 0 1.6-4.1c.1-1.6.1-6.8 0-8.3Zm-2.1 10.1a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9A3.3 3.3 0 0 1 6.1 3.5c1.3-.5 4.4-.4 5.9-.4s4.6-.1 5.9.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9Z"></path></svg>Instagram</a>
+          <a href="https://www.youtube.com/@44Bricksconstruction" target="_blank" rel="noopener" aria-label="44 BRICKS on YouTube" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.4);border-radius:2px;color:#fff;font-weight:600;font-size:14px" style-hover="background:#fff;color:#003399;border-color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15V9l5.8 3-5.8 3Z"></path></svg>YouTube</a>
+        </dd></div>
+        <div><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#B9C8EC">EMAIL</dt><dd style="font-size:22px;font-weight:500;overflow-wrap:anywhere"><a href="mailto:info@44bricksconstruction.com" style="color:#fff" style-hover="color:#E3B75B"><!--email_off-->info@44bricksconstruction.com<!--/email_off--></a><br><a href="mailto:44bricksconstruction@gmail.com" style="color:#fff" style-hover="color:#E3B75B"><!--email_off-->44bricksconstruction@gmail.com<!--/email_off--></a></dd></div>
+        <div><dt style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#B9C8EC">OPERATING ACROSS GHANA</dt><dd style="color:#DCE3F5;max-width:40ch">Urban and emerging communities — residential, commercial, industrial, and public-sector projects.</dd></div>
+      </dl>
+    </div>
+    <form id="quote" action="contact.php" method="POST" onSubmit="{{ submitQuote }}" noValidate="{{ true }}" style="background:#F4F2EE;color:#0F1B33;padding:clamp(24px,3.5vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px;align-content:start">
+      <input type="hidden" name="_subject" value="New Quote Request — Website">
+      <input type="text" name="_honey" style="display:none" tabIndex="-1" autoComplete="off">
+      <p style="grid-column:1/-1;font-family:'Archivo',sans-serif;font-weight:800;font-size:24px">Request a quote</p>
+      <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">FULL NAME<input name="name" type="text" autoComplete="name" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none" style-focus="border-bottom-color:#003399"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">PHONE<input name="phone" type="tel" autoComplete="tel" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none" style-focus="border-bottom-color:#003399"></label>
+      <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">EMAIL<input name="email" type="email" autoComplete="email" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none" style-focus="border-bottom-color:#003399"></label>
+      <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">PROJECT TYPE<select name="project_type" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none">
+        <option>Residential construction</option>
+        <option>Commercial development</option>
+        <option>Industrial infrastructure</option>
+        <option>Water management</option>
+        <option>Urban development</option>
+        <option>Renewable energy</option>
+        <option>Renovation &amp; maintenance</option>
+        <option>Project management / consultancy</option>
+      </select></label>
+      <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266">TELL US ABOUT YOUR PROJECT<textarea name="message" required="{{ true }}" rows="4" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#0F1B33;background:transparent;border:0;border-bottom:1px solid #A9A498;padding:8px 0;outline:none;resize:vertical" style-focus="border-bottom-color:#003399"></textarea></label>
+      <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+        <button type="submit" style="cursor:pointer;background:#003399;color:#fff;border:0;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px" style-hover="background:#0A1A3C">Send enquiry</button>
+        <span aria-live="polite" style="font-size:14px;color:#003399">{{ statusQuote }}</span>
+      </div>
+      <p style="grid-column:1/-1;font-size:13px;color:#4A5266">Sent directly to info@44bricksconstruction.com</p>
+    </form>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+
+<sc-if value="{{ videoOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="{{ videoTitle }}" onClick="{{ closeVideo }}" style="position:fixed;inset:0;z-index:100;background:rgba(6,14,34,.92);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px)">
+    <div onClick="{{ stop }}" style="width:min(1100px,100%);display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;color:#fff">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em">{{ videoTitle }}</span>
+        <button onClick="{{ closeVideo }}" aria-label="Close video" style="cursor:pointer;background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;width:44px;height:44px;font-size:22px;border-radius:2px">×</button>
+      </div>
+      {{ videoEl }}
+    </div>
+  </div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;split&quot;,&quot;full-bleed&quot;],&quot;default&quot;:&quot;split&quot;,&quot;tsType&quot;:&quot;'split' | 'full-bleed'&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;splash&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;ambientBricks&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Effects&quot;},&quot;phaseSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0.8,&quot;max&quot;:4,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;s&quot;,&quot;default&quot;:0.9,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Project timeline&quot;}}">
+const P = (n) => 'assets/img' + n + '.jpg';
+const PROJECTS = [
+  { name: 'NAKOS Place', ongoing: false,
+    blurb: 'NAKOS Place — a modern three-storey mixed-use building: ground-floor retail and showroom spaces topped by two levels of apartments and offices, finished in crisp white render with a bold lime-green accent band, dark timber slats, and vertical NAKOS signage.',
+    imgs: [4,5,6,7,8,9,10,11,34,32],
+    alts: ['Cleared site with block stacks during setting out','Excavated foundation trench grid','Crews laying foundation blockwork','Waterproofed foundation cells and ground beams','Laterite backfilling over the foundations','Concrete columns on the ground-floor slab','First-floor slab formwork and reinforcement','Completed three-storey structural shell','Signature green cladding and glazing','The finished mixed-use development'],
+    phases: [['Mobilization & setting out','The site is cleared, hoarded, and set out — materials arrive and reference lines go down.','Set out'],['Excavation','Foundation trenches are excavated to the engineer’s grid.','Excavate'],['Foundation blockwork','Footings and foundation walls rise, block by block.','Foundations'],['Substructure & waterproofing','Ground beams and chambers are formed and sealed.','Substructure'],['Backfilling','Laterite fill is placed and compacted over the substructure.','Backfill'],['Ground floor & columns','Reinforced concrete columns stand on the ground slab.','Columns'],['First-floor slab','Decking, reinforcement, and propping for the upper slab.','Slab'],['Structural shell','Blockwork to full height and the roof structure installed.','Shell'],['Cladding & finishes','The signature green facade, glazing, and balconies go on.','Cladding'],['Delivered','NAKOS Place handed over — a lively, stylish hub for lifestyle and business.','Delivered']] },
+  { name: 'Villa Adel', ongoing: false,
+    blurb: 'Villa Adel — a four-bedroom home with a pool, office space, and a gym. The perfect blend of space, comfort, and flexibility.',
+    imgs: [12,13,14,15,16,17,18,19,20,21,36],
+    alts: ['Chalk setting-out lines on bare earth','Excavated foundation trenches','Crew laying foundation blockwork','Completed foundation grid from above','Waterproofed substructure and backfilling','Ground-floor walls rising','First-floor slab reinforcement','Upper-floor blockwork and columns','Two-storey structural shell in scaffolding','Rendered and glazed facade','Villa Adel complete'],
+    phases: [['Setting out','The villa’s floor plan is chalked full-size on the cleared plot.','Set out'],['Excavation','Foundation trenches cut to the setting-out lines.','Excavate'],['Foundation blockwork','The crew lays the villa’s footings and foundation walls.','Foundations'],['Foundation grid complete','Every room already legible from the air.','Grid'],['Waterproofing & backfill','The substructure is sealed and filled ready for the slab.','Backfill'],['Ground-floor walls','Rooms take shape — living spaces, office, and gym below.','Walls'],['First-floor decking','Reinforcement laid for the upper floor’s four bedrooms.','Decking'],['Upper-floor walls','Blockwork and columns rise to the top plate.','Upper walls'],['Structural shell','The full two-storey form stands complete in scaffolding.','Shell'],['Rendering & glazing','Render coat on, glazing in, and the glass balcony fitted.','Render'],['Delivered','A modern four-bedroom home with pool, office, and gym.','Delivered']] },
+  { name: 'NAKOS Courts', ongoing: true,
+    blurb: 'NAKOS Courts — four contemporary double-storey, two-bedroom townhouses on a reinforced concrete frame: timber-door entries, full-height glazed living areas, and recessed balconies with glass balustrades under timber-lined soffits. Follow the build as it progresses.',
+    imgs: [22,23,38,24],
+    alts: ['Setting-out lines chalked across the cleared plot','The set-out plot from above, materials staged','Render: street elevation of four townhouses','Render: recessed balconies with glass balustrades'],
+    phases: [['Setting out — happening now','The four-unit row is chalked full-size on the cleared plot; footings and the frame come next.','Set out'],['Groundworks commencing','Materials staged and the site prepared for excavation and the structural frame.','Groundworks'],['The design — street elevation','Off-white render and stone-clad planters, one unified facade rhythm.','Design'],['The design — the residences','Recessed balconies, glass balustrades, and timber-lined soffits crown each unit.','Residences']] },
+  { name: 'Project X', ongoing: true,
+    blurb: 'Project X — a four-bedroom renovation transforming an existing residence into a contemporary home: a charcoal-rendered volume, stone-clad feature wing, timber-look screening, and a cantilevered entry canopy under one flat-roof datum.',
+    imgs: [25,26,27,28,29,30,31],
+    alts: ['Selective demolition of the existing home','The old structure stripped out from above','New blockwork rising off the existing slab','Upper walls complete, roof battens going on','New feature wall rendered smooth','Render: charcoal volume with stone-clad wing','Render: entrance with cantilevered canopy'],
+    phases: [['Selective demolition','The existing home is carefully opened up — structure exposed for reinforcement.','Demolition'],['Strip-out & retained structure','The old fabric stripped back to what stays, ready for the new plan.','Strip-out'],['New walls off the existing slab','Blockwork rises around retained walls as the new layout takes shape.','New walls'],['Structural rework & roof','Upper walls complete and roof battens go on over the reinforced frame.','Roof'],['Render & feature walls','The new envelope is rendered smooth, ready for cladding and screening.','Render'],['The design — the vision','A charcoal volume with stone-clad wing and timber screening against mature palms.','Vision'],['The design — entrance elevation','The cantilevered canopy and slatted screen that will greet you home.','Entrance']] },
+];
+const VIDEOS = {
+  np: ['videos/nakos_place.mp4', 'NAKOS PLACE — MIXED-USE DEVELOPMENT'],
+  va: ['videos/villa_adel.mp4', 'VILLA ADEL — FOUR-BEDROOM HOME'],
+  nc: ['videos/nakos_courts.mp4', 'NAKOS COURTS — TOWNHOUSES'],
+  px: ['videos/project_x.mp4', 'PROJECT X — RENOVATION'],
+};
+const pad = (n) => String(n).padStart(2, '0');
+const SLIDES = [
+  [32, 'NAKOS Place — delivered', 'A modern three-storey mixed-use building: retail and showrooms below, sleek apartments and offices above.', 'Drone view of the completed NAKOS Place with signature green facade'],
+  [33, 'Retail below, residences above', 'Nine glazed retail units at street level with balconied residences on the upper floors.', 'Front elevation of NAKOS Place with retail units and balconies'],
+  [34, 'The signature facade', 'Green composite cladding and louvred screening — precision detailing that makes the building unmistakable.', 'Corner aerial showing green cladding and louvred screen'],
+  [35, 'Part of a growing neighbourhood', 'Positioned on a main route, serving an expanding residential community.', 'Wide aerial of NAKOS Place within its neighbourhood'],
+  [36, 'Villa Adel — four-bedroom private residence', 'A pool, office space, and gym — the perfect blend of space, comfort, and flexibility.', 'Villa Adel, a completed modern four-bedroom home with blue accent facade'],
+  [37, 'NAKOS Place after dark', 'Crisp white render, the lime-green accent band, and timber slat detail — designed to come alive at night.', 'NAKOS Place at dusk, architectural render'],
+  [38, 'NAKOS Courts — under construction', 'Four contemporary two-bedroom townhouses. Setting out is complete — register your interest before completion.', 'NAKOS Courts render, four-townhouse row'],
+];
+const SHOW_MS = 7000;
+const h = React.createElement;
+const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+const whenThree = (cb) => { let n = 0; const t = setInterval(() => { if (window.THREE && window.FX44) { clearInterval(t); cb(); } else if (++n > 250) { clearInterval(t); cb(true); } }, 80); return t; };
+
+class Component extends DCLogic {
+  state = { hs: 0, hsz: false, tr: 0, trz: false, proj: 0, cur: 0, playing: false, video: null, status: {}, splash: 2, slide: 0, fill: false, mode: 'site', auto: true, noGL: false };
+  progressRef = React.createRef(); ambientRef = React.createRef(); heroImgRef = React.createRef();
+  hubRef = React.createRef(); siteCanvasRef = React.createRef(); sliderRef = React.createRef();
+
+  ytRef = React.createRef();
+  ytUnmute = () => {
+    const f = this.ytRef.current; if (!f || !f.contentWindow) return;
+    const cmd = (func, args) => f.contentWindow.postMessage(JSON.stringify({ event: 'command', func, args: args || [] }), '*');
+    cmd('unMute'); cmd('setVolume', [100]); cmd('playVideo');
+    if (!this.state.ytSound) this.setState({ ytSound: true });
+  };
+  componentDidMount() {
+    this._ytGesture = () => { this.ytUnmute(); ['pointerdown', 'keydown', 'touchend'].forEach((e) => removeEventListener(e, this._ytGesture, true)); };
+    ['pointerdown', 'keydown', 'touchend'].forEach((e) => addEventListener(e, this._ytGesture, true));
+    this._key = (e) => { if (e.key === 'Escape') this.setState({ video: null }); };
+    window.addEventListener('keydown', this._key);
+    // splash
+    if ((this.props.splash ?? true)) {
+      document.body.style.overflow = 'hidden';
+      this._splashT = setTimeout(() => this.closeSplash(), reduced() ? 700 : 2450);
+    } else this.setState({ splash: 0 });
+    // scroll: progress bar + hero parallax
+    this._scroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (this.progressRef.current) this.progressRef.current.style.width = (max > 0 ? scrollY / max * 100 : 0) + '%';
+      const hi = this.heroImgRef.current;
+      if (hi && !reduced() && scrollY < innerHeight * 1.2) hi.style.transform = 'translateY(' + (scrollY * 0.08) + 'px)';
+    };
+    addEventListener('scroll', this._scroll, { passive: true });
+    // reveal + counters + tilt
+    const root = document.body;
+    this._io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target; this._io.unobserve(el);
+      el.style.opacity = '1'; el.style.translate = '0 0';
+    }), { threshold: 0.12 });
+    if (!reduced()) root.querySelectorAll('section h2, section article, #film button, #onsite figure, #services li, #process > div > div, #hub [data-pkg]').forEach((el) => {
+      if (el.getBoundingClientRect().top < innerHeight) return;
+      el.style.opacity = '0'; el.style.translate = '0 26px'; el.style.transition = (el.style.transition ? el.style.transition + ',' : '') + 'opacity .7s ease, translate .7s ease';
+      this._io.observe(el);
+    });
+    this._cio = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target, to = +el.dataset.count; this._cio.unobserve(el);
+      if (reduced()) return;
+      const t0 = performance.now();
+      const tick = (t) => { const p = Math.min((t - t0) / 1100, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
+      el.textContent = '0'; requestAnimationFrame(tick);
+    }), { threshold: 0.6 });
+    root.querySelectorAll('[data-count]').forEach((el) => this._cio.observe(el));
+    if (!reduced() && !matchMedia('(hover:none)').matches) {
+      root.querySelectorAll('#film button, #team article, #onsite figure, #hub [data-pkg]').forEach((el) => {
+        el.style.transformStyle = 'preserve-3d'; el.style.transition = (el.style.transition ? el.style.transition + ',' : '') + 'transform .18s ease';
+        el.addEventListener('pointermove', (e) => { const r = el.getBoundingClientRect(); const px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5; el.style.transform = 'perspective(760px) rotateY(' + (px * 7).toFixed(2) + 'deg) rotateX(' + (-py * 7).toFixed(2) + 'deg) translateZ(8px)'; });
+        el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+      });
+    }
+    // aerial slideshow
+    this.startShow();
+    this.trRestart();
+    this.hsRestart();
+    // WebGL scenes
+    this._wt = whenThree((failed) => {
+      if (failed) { this.setState({ noGL: true }); return; }
+      if (this.ambientRef.current) this._amb = window.FX44.ambient(this.ambientRef.current);
+      if (this.hubRef.current) {
+        this._site = window.FX44.site(this.hubRef.current, this.siteCanvasRef.current, this.sliderRef.current, () => this.setState({ noGL: true }));
+      }
+    });
+  }
+  componentDidUpdate(pp) {
+    if (this.ambientRef.current && !this._amb && window.FX44 && (this.props.ambientBricks ?? true)) this._amb = window.FX44.ambient(this.ambientRef.current);
+    if (this._amb && !(this.props.ambientBricks ?? true)) { this._amb.destroy(); this._amb = null; }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this._key); removeEventListener('scroll', this._scroll);
+    this.stopPlay(); clearInterval(this._showT); clearInterval(this._trT); clearInterval(this._hsT); clearInterval(this._wt); clearTimeout(this._splashT);
+    this._io && this._io.disconnect(); this._cio && this._cio.disconnect();
+    this._amb && this._amb.destroy(); this._site && this._site.destroy();
+    document.body.style.overflow = '';
+  }
+  closeSplash() {
+    if (this.state.splash !== 2) return;
+    this.setState({ splash: 1 }); document.body.style.overflow = '';
+    setTimeout(() => this.setState({ splash: 0 }), 650);
+  }
+  startShow() {
+    clearInterval(this._showT);
+    this.setState({ fill: false });
+    requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ fill: true })));
+    this._showT = setInterval(() => this.goShow(this.state.slide + 1), SHOW_MS);
+  }
+  hsRestart() { clearInterval(this._hsT); this.setState({ hsz: false }); requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ hsz: true }))); this._hsT = setInterval(() => this.hsGo(this.state.hs + 1), 6000); }
+  hsGo(k) { this.setState({ hs: (k + 5) % 5 }); this.hsRestart(); }
+  trRestart() { clearInterval(this._trT); this.setState({ trz: false }); requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ trz: true }))); this._trT = setInterval(() => { this.setState({ tr: (this.state.tr + 1) % 5 }); this.trRestart(); }, 6500); }
+  goShow(i) { this.setState({ slide: (i + SLIDES.length) % SLIDES.length }); this.startShow(); }
+  setMode(m) { this.setState({ mode: m }); this._site && this._site.setMode(m); }
+
+  buildSplash(fading) {
+    const layers = [];
+    for (let i = 0; i < 10; i++) layers.push(h('img', { key: i, src: 'assets/img2.png', alt: '', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', transform: 'translateZ(' + (-34 * i / 9) + 'px)', filter: 'brightness(' + (1 - i / 9 * 0.5) + ')' } }));
+    const r = reduced();
+    return h('div', { role: 'presentation', onClick: () => this.closeSplash(), style: { position: 'fixed', inset: 0, zIndex: 200, background: '#0A1A3C', display: 'grid', placeItems: 'center', cursor: 'pointer', opacity: fading ? 0 : 1, visibility: fading ? 'hidden' : 'visible', transition: 'opacity .55s ease, visibility .55s', backgroundImage: 'linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px)', backgroundSize: '56px 56px' } },
+      h('div', { style: { textAlign: 'center' } },
+        h('div', { style: { width: 180, height: 180, margin: '0 auto 26px', perspective: 1000 } },
+          h('div', { style: { position: 'relative', width: '100%', height: '100%', transformStyle: 'preserve-3d', animation: r ? 'none' : 's3dspin 2.6s cubic-bezier(.45,.05,.35,1) both', transform: 'rotateX(10deg) rotateY(14deg)' } }, layers)),
+        h('div', { style: { fontFamily: "'Archivo',sans-serif", fontWeight: 850, fontVariationSettings: "'wdth' 112", color: '#fff', fontSize: 28, letterSpacing: '.06em', opacity: r ? 1 : 0, animation: r ? 'none' : 'sfade .6s ease 1.4s forwards' } }, '44 BRICKS'),
+        h('div', { style: { fontFamily: "'IBM Plex Mono',monospace", fontSize: 11, letterSpacing: '.26em', color: '#E3B75B', marginTop: 8, opacity: r ? 1 : 0, animation: r ? 'none' : 'sfade .6s ease 1.7s forwards' } }, 'STRONG FOUNDATIONS. LASTING IMPACT.'),
+        h('div', { style: { width: 150, height: 2, background: 'rgba(255,255,255,.14)', margin: '22px auto 0', overflow: 'hidden' } },
+          h('i', { style: { display: 'block', height: '100%', width: 0, background: '#C9972C', animation: 'sload 2.2s ease .2s forwards' } }))));
+  }
+  buildMarquee() {
+    const words = ['RESIDENTIAL', 'COMMERCIAL', 'INDUSTRIAL', 'WATER', 'URBAN', 'ENERGY', 'PROPERTY HUB', 'DRONE MONITORING'];
+    const row = (k) => h('div', { key: k, style: { display: 'flex', flex: 'none' } }, words.map((w, i) => h('span', { key: i, style: { display: 'flex', alignItems: 'center', gap: 40, paddingRight: 40, fontFamily: "'Archivo',sans-serif", fontWeight: 800, fontVariationSettings: "'wdth' 112", fontSize: 18, letterSpacing: '.08em', whiteSpace: 'nowrap' } }, w, h('span', { style: { width: 8, height: 8, background: '#C9972C', display: 'inline-block' } }))));
+    return h('div', { style: { display: 'flex', width: 'max-content', animation: reduced() ? 'none' : 'marq 26s linear infinite' } }, row(0), row(1));
+  }
+
+  stopPlay() { clearInterval(this._t); this._t = null; if (this.state.playing) this.setState({ playing: false }); }
+  go(i) { const N = PROJECTS[this.state.proj].imgs.length; this.setState({ cur: (i + N) % N }); }
+  togglePlay() {
+    if (this._t) return this.stopPlay();
+    const N = PROJECTS[this.state.proj].imgs.length;
+    if (this.state.cur === N - 1) this.setState({ cur: 0 });
+    const ms = (this.props.phaseSeconds ?? 1.7) * 1000;
+    this.setState({ playing: true });
+    this._t = setInterval(() => {
+      const n = PROJECTS[this.state.proj].imgs.length;
+      if (this.state.cur >= n - 1) this.stopPlay(); else this.setState({ cur: this.state.cur + 1 });
+    }, ms);
+  }
+
+  submit(key) {
+    return async (e) => {
+      e.preventDefault();
+      const f = e.currentTarget;
+      if (!window.B44) return;
+      const set = (msg) => this.setState((s) => ({ status: { ...s.status, [key]: msg } }));
+      set('Sending…');
+      const r = await window.B44.submit(f);
+      set(r.msg || '');
+    };
+  }
+  renderVals() {
+    if (!this.state) return {};
+    const { proj, cur, playing, video, status } = this.state;
+    const p = PROJECTS[proj];
+    const N = p.imgs.length;
+    const hero = this.props.heroStyle ?? 'split';
+    const openV = (k) => () => this.setState({ video: k });
+    const { splash, slide, fill, mode, auto, noGL } = this.state;
+    if (!this._marq) this._marq = this.buildMarquee();
+    if (!this._rec) this._rec = h('span', { style: { width: 9, height: 9, borderRadius: '50%', background: '#FF4D4D', display: 'inline-block', animation: 'blink 1.1s steps(1) infinite' } });
+    if (!this._splashEls) this._splashEls = [this.buildSplash(false), this.buildSplash(true)];
+    const on = (a) => a ? { bg: '#C9972C', fg: '#0A1A3C', bd: '#C9972C' } : { bg: 'rgba(8,20,47,.75)', fg: '#DCE3F0', bd: 'rgba(255,255,255,.3)' };
+    const sb = on(mode === 'site'), db = on(mode === 'drone'), ab = on(auto);
+    return {
+      hs: (() => { const o = {}; for (let k = 0; k < 5; k++) { o['o' + k] = k === this.state.hs ? 1 : 0; o['z' + k] = k === this.state.hs && this.state.hsz ? 1.1 : 1.02; } return o; })(),
+      hsCap: ["NAKOS PLACE — DELIVERED","VILLA ADEL — DELIVERED","CLADDING & FINISHES","STRUCTURAL SHELL","SETTING OUT"][this.state.hs],
+      hsDots: [0, 1, 2, 3, 4].map((k) => ({ aria: 'Slide ' + (k + 1), c: k === this.state.hs ? '#003399' : '#C3CDE2', onClick: () => this.hsGo(k) })),
+      tr: (() => { const o = {}; for (let k = 0; k < 5; k++) { o['o' + k] = k === this.state.tr ? 1 : 0; o['z' + k] = k === this.state.tr && this.state.trz ? 1.1 : 1.02; } return o; })(),
+      pState: this.state.pHold ? 'paused' : 'running',
+      pPause: () => this.setState({ pHold: true }),
+      pPlay: () => this.setState({ pHold: false }),
+      orbitHint: (typeof matchMedia !== 'undefined' && matchMedia('(pointer:coarse)').matches) ? 'SWIPE TO ORBIT' : 'DRAG TO ORBIT',
+      hubCtrlDisplay: this.state.noGL ? 'none' : 'flex',
+      ytRef: this.ytRef,
+      ytNote: this.state.ytSound ? 'SOUND ON' : 'SOUND TURNS ON AS SOON AS YOU TAP OR CLICK ANYWHERE',
+      splashOn: splash > 0,
+      splashEl: splash === 2 ? this._splashEls[0] : this._splashEls[1],
+      progressRef: this.progressRef, ambientRef: this.ambientRef, heroImgRef: this.heroImgRef,
+      ambientOn: this.props.ambientBricks ?? true,
+      marqueeEl: this._marq,
+      slides: SLIDES.map((s, k) => ({ src: P(s[0]), alt: s[3], op: k === slide ? 1 : 0, scale: k === slide && fill ? 1.08 : 1.02, fill: k === slide && fill ? '100%' : '0%', dur: k === slide && fill ? SHOW_MS + 'ms' : '0ms', aria: 'Slide ' + (k + 1), onClick: () => this.goShow(k) })),
+      showCount: pad(slide + 1) + ' / ' + pad(SLIDES.length),
+      showTitle: SLIDES[slide][1], showText: SLIDES[slide][2],
+      showPrev: () => this.goShow(slide - 1), showNext: () => this.goShow(slide + 1),
+      showPause: () => clearInterval(this._showT), showResume: () => this.startShow(),
+      hubRef: this.hubRef, siteCanvasRef: this.siteCanvasRef, sliderRef: this.sliderRef,
+      siteView: () => this.setMode('site'), droneView: () => this.setMode('drone'), droneMode: mode === 'drone',
+      siteBtnBg: sb.bg, siteBtnFg: sb.fg, siteBtnBorder: sb.bd, droneBtnBg: db.bg, droneBtnFg: db.fg, droneBtnBorder: db.bd,
+      autoBg: ab.bg, autoFg: ab.fg, autoBorder: ab.bd,
+      onPhase: (e) => { this._site && this._site.setManual(+e.target.value / 100); if (auto) this.setState({ auto: false }); },
+      phaseAuto: () => { this._site && this._site.setManual(null); this.setState({ auto: true }); },
+      recDot: this._rec, noGL,
+      heroSplit: hero === 'split',
+      heroFull: hero !== 'split',
+      tabs: PROJECTS.map((q, k) => ({
+        name: q.name, ongoing: q.ongoing, selected: k === proj ? 'true' : 'false',
+        bg: k === proj ? '#0F1B33' : 'transparent', fg: k === proj ? '#fff' : '#0F1B33', border: k === proj ? '#0F1B33' : '#C9C5BC',
+        onClick: () => { this.stopPlay(); this.setState({ proj: k, cur: 0 }); },
+      })),
+      stageImgs: p.imgs.map((n, k) => ({ src: P(n), alt: 'Aerial view: ' + p.alts[k], op: k === cur ? 1 : 0 })),
+      steps: p.phases.map((f, k) => ({
+        label: f[2], aria: 'Phase ' + (k + 1) + ': ' + f[0],
+        bar: k === cur ? '#003399' : k < cur ? '#0F1B33' : '#DAD6CD',
+        fg: k <= cur ? '#0F1B33' : '#7A8091',
+        onClick: () => { this.stopPlay(); this.go(k); },
+      })),
+      phaseCount: 'PHASE ' + pad(cur + 1) + ' / ' + pad(N),
+      phaseTitle: p.phases[cur][0],
+      phaseText: p.phases[cur][1],
+      blurb: p.blurb,
+      projectUrl: 'Project.dc.html?p=' + ['nakos-place', 'villa-adel', 'nakos-courts', 'project-x'][proj],
+      playLabel: playing ? '❚❚  Pause' : '▶  Play sequence',
+      prev: () => { this.stopPlay(); this.go(cur - 1); },
+      next: () => { this.stopPlay(); this.go(cur + 1); },
+      togglePlay: () => this.togglePlay(),
+      openNakosPlace: openV('np'), openVillaAdel: openV('va'), openNakosCourts: openV('nc'), openProjectX: openV('px'),
+      videoOpen: !!video,
+      videoEl: !!video ? React.createElement('video', { key: 'v', src: VIDEOS[video][0], controls: true, autoPlay: true, playsInline: true, style: { width: '100%', maxHeight: '78vh', background: '#000' } }) : null,
+      videoSrc: video ? VIDEOS[video][0] : '',
+      videoTitle: video ? VIDEOS[video][1] : '',
+      closeVideo: () => this.setState({ video: null }),
+      stop: (e) => e.stopPropagation(),
+      submitQuote: this.submit('quote'), submitHub: this.submit('hub'), submitInterest: this.submit('interest'), submitNews: this.submit('news'),
+      statusQuote: status.quote || '', statusHub: status.hub || '', statusInterest: status.interest || '', statusNews: status.news || '',
+    };
+  }
+}
+</script>
+</body>
+</html>

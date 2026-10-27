@@ -1,0 +1,11 @@
+DirectoryIndex index.html
+AddType text/javascript .js .jsx
+AddType video/mp4 .mp4
+AddDefaultCharset UTF-8
+Options -Indexes
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+</IfModule>

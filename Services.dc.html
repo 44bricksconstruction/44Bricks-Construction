@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Services — 44 BRICKS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F4F2EE;color:#0F1B33;font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:#003399;text-decoration:none}
+a:hover{color:#0A1A3C}
+::selection{background:#003399;color:#fff}
+section[id],article[id]{scroll-margin-top:140px}
+button{font-family:inherit}
+</style>
+<script src="site-data.js"></script>
+</helmet>
+<dc-import name="Header" active="services" hint-size="100%,68px"></dc-import>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,48px) clamp(32px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:24px"><a href="44%20Bricks%20Website.dc.html" style="color:#4A5266">HOME</a> / SERVICES</p>
+  <div style="display:flex;flex-wrap:wrap;gap:24px clamp(32px,5vw,72px);align-items:flex-end;justify-content:space-between">
+    <h1 style="flex:1 1 min(100%,560px);font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 115;font-size:clamp(44px,7vw,96px);line-height:.94;letter-spacing:-.025em">What we build — <span style="color:#003399">full lifecycle.</span></h1>
+    <p style="flex:1 1 300px;max-width:42ch;font-size:18px;color:#4A5266;text-wrap:pretty">Comprehensive construction and infrastructure services for private, commercial, and public-sector clients.</p>
+  </div>
+</section>
+
+<nav aria-label="Services" style="position:sticky;top:68px;z-index:20;background:rgba(244,242,238,.96);backdrop-filter:blur(10px);border-top:1px solid #DAD6CD;border-bottom:1px solid #DAD6CD">
+  <div style="max-width:1240px;margin:0 auto;padding:10px clamp(16px,4vw,48px);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none">
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+      <a href="{{ s.anchor }}" style="flex:none;font-size:14px;font-weight:500;color:#0F1B33;padding:8px 14px;border:1px solid #C9C5BC;border-radius:2px;white-space:nowrap" style-hover="border-color:#003399;color:#003399">{{ s.no }} {{ s.title }}</a>
+    </sc-for>
+  </div>
+</nav>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(16px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:24px">BY SECTOR</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:#DAD6CD;border:1px solid #DAD6CD">
+    <div data-rv="" style="background:#F4F2EE;padding:24px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin-bottom:12px">Construction</h3><ul style="list-style:none;display:grid;gap:6px;color:#4A5266;font-size:15px"><li>Residential developments</li><li>Commercial buildings</li><li>Industrial facilities</li></ul></div>
+    <div data-rv="" style="background:#F4F2EE;padding:24px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin-bottom:12px">Infrastructure</h3><ul style="list-style:none;display:grid;gap:6px;color:#4A5266;font-size:15px"><li>Roads &amp; civil works</li><li>Urban development</li><li>Water supply systems</li></ul></div>
+    <div data-rv="" style="background:#F4F2EE;padding:24px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin-bottom:12px">Energy</h3><ul style="list-style:none;display:grid;gap:6px;color:#4A5266;font-size:15px"><li>Renewable energy projects</li><li>Sustainable infrastructure solutions</li></ul></div>
+    <div data-rv="" style="background:#F4F2EE;padding:24px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin-bottom:12px">Project services</h3><ul style="list-style:none;display:grid;gap:6px;color:#4A5266;font-size:15px"><li>Project management</li><li>Construction supervision</li><li>Design coordination</li><li>Maintenance &amp; renovation</li></ul></div>
+  </div>
+</section>
+
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,48px) clamp(64px,8vw,112px);display:flex;flex-direction:column;gap:clamp(48px,6vw,88px)">
+  <sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
+    <article id="{{ s.slug }}" data-rv="" style="display:flex;flex-wrap:wrap;flex-direction:{{ s.dir }};gap:32px clamp(32px,5vw,72px);align-items:stretch;border-top:1px solid #0F1B33;padding-top:32px">
+      <div style="flex:1 1 min(100%,420px);min-height:280px;position:relative;background:#0A1A3C;overflow:hidden">
+        <sc-if value="{{ s.hasImg }}" hint-placeholder-val="{{ true }}"><span role="img" aria-label="{{ s.title }} — 44 BRICKS project" style="display:block;background:#0A1A3C url({{ s.img }}) center/cover no-repeat;position:absolute;inset:0;width:100%;height:100%;"></span></sc-if>
+        <sc-if value="{{ s.noImg }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:28px;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:40px 40px"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-variation-settings:'wdth' 120;font-size:clamp(96px,14vw,180px);line-height:.8;color:#003399">{{ s.no }}</span></div></sc-if>
+      </div>
+      <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:16px;padding:8px 0">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;text-transform:uppercase">{{ s.no }} — {{ s.sector }}</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 110;font-size:clamp(30px,3.6vw,48px);line-height:1;letter-spacing:-.015em">{{ s.title }}</h2>
+        <p style="font-size:18px;font-weight:500">{{ s.summary }}</p>
+        <p style="color:#4A5266;text-wrap:pretty">{{ s.detail }}</p>
+        <ul style="list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:0 24px;margin-top:4px">
+          <sc-for list="{{ s.includes }}" as="it" hint-placeholder-count="4"><li style="padding:10px 0;border-bottom:1px solid #DAD6CD;font-size:15px">{{ it }}</li></sc-for>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:12px">
+          <a href="{{ s.quote }}" style="background:#003399;color:#fff;font-weight:600;padding:13px 20px;border-radius:2px" style-hover="background:#0A1A3C;color:#fff">Request a quote</a>
+          <sc-if value="{{ s.hasProject }}" hint-placeholder-val="{{ false }}"><a href="{{ s.projectUrl }}" style="color:#0F1B33;font-weight:600;padding:12px 20px;border:1px solid #0F1B33;border-radius:2px" style-hover="background:#0F1B33;color:#fff">See {{ s.projectName }}</a></sc-if>
+        </div>
+      </div>
+    </article>
+  </sc-for>
+</div>
+
+<section style="background:#fff;border-top:1px solid #DAD6CD">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,128px) clamp(16px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">HOW WE WORK</p>
+    <h2 data-rv="" style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:-.02em;margin-bottom:48px">From first meeting to handover</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px;border-top:1px solid #0F1B33;padding-top:28px">
+      <div data-rv=""><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">01</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Consult</h3><p style="color:#4A5266">Your goals, site, and budget — understood before anything is drawn.</p></div>
+      <div data-rv=""><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">02</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Design &amp; plan</h3><p style="color:#4A5266">Planning, design coordination, and clear timelines agreed before ground breaks.</p></div>
+      <div data-rv=""><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">03</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Build</h3><p style="color:#4A5266">Skilled crews, hands-on supervision, and drone-documented progress.</p></div>
+      <div data-rv=""><span style="display:block;font-family:'Archivo',sans-serif;font-weight:850;font-size:56px;line-height:1;color:#003399;margin-bottom:16px">04</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;margin-bottom:8px">Handover &amp; maintain</h3><p style="color:#4A5266">A clean handover, plus maintenance support long after completion.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#003399;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between">
+    <p style="flex:1 1 min(100%,560px);font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 110;font-size:clamp(28px,3.6vw,48px);line-height:1.05;max-width:22ch">Not sure which service fits? Start with a conversation.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <a href="Contact.dc.html#start" style="background:#C9972C;color:#0A1A3C;font-weight:600;padding:15px 24px;border-radius:2px" style-hover="background:#E3B75B;color:#0A1A3C">Start your project</a>
+      <a href="Contact.dc.html?form=consult#forms" style="color:#fff;font-weight:600;padding:14px 24px;border:1px solid rgba(255,255,255,.6);border-radius:2px" style-hover="background:#fff;color:#003399">Book a consultation</a>
+    </div>
+  </div>
+</section>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.B44 };
+  componentDidMount() {
+    const w = () => { if (window.B44) this.setState({ ready: true }, () => setTimeout(() => { window.B44.fx(); if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 130 }); } }, 80)); else this._w = setTimeout(w, 30); };
+    w();
+  }
+  componentWillUnmount() { clearTimeout(this._w); }
+  renderVals() {
+    if (!this.state) return {};
+    const D = window.B44;
+    if (!D) return { services: [] };
+    return {
+      services: D.SERVICES.map((s, i) => {
+        const p = s.project ? D.project(s.project) : null;
+        return { ...s, anchor: '#' + s.slug, dir: i % 2 ? 'row-reverse' : 'row', hasImg: !!s.img, noImg: !s.img,
+          quote: 'Contact.dc.html?type=' + s.slug + '#start', hasProject: !!p, projectUrl: p ? D.projectUrl(p.slug) : '', projectName: p ? p.name : '' };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

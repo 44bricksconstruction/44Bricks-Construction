@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Property Hub — 44 BRICKS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0A1A3C;color:#fff;font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:#E3B75B;text-decoration:none}
+a:hover{color:#fff}
+::selection{background:#C9972C;color:#0A1A3C}
+section[id]{scroll-margin-top:84px}
+button{font-family:inherit}
+@keyframes blink{50%{opacity:.15}}
+</style>
+<script src="fx3d.js"></script>
+<script src="site-data.js"></script>
+</helmet>
+<dc-import name="Header" active="hub" hint-size="100%,68px"></dc-import>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,48px) clamp(32px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:24px"><a href="44%20Bricks%20Website.dc.html" style="color:#B9C8EC">HOME</a> / PROPERTY HUB</p>
+  <div style="display:flex;flex-wrap:wrap;gap:24px clamp(32px,5vw,72px);align-items:flex-end;justify-content:space-between">
+    <h1 style="flex:1 1 min(100%,560px);font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 115;font-size:clamp(44px,7vw,96px);line-height:.94;letter-spacing:-.025em">Everything for your build, <span style="color:#E3B75B">in one place.</span></h1>
+    <p style="flex:1 1 300px;max-width:42ch;font-size:18px;color:#C3CDE2;text-wrap:pretty">Build packages, scheduled drone monitoring, and video progress updates — so you can see your project from anywhere.</p>
+  </div>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+  <div ref="{{ hubRef }}" style="position:relative;border:1px solid rgba(255,255,255,.16);background:#08142F;overflow:hidden">
+    <canvas ref="{{ canvasRef }}" aria-label="Interactive 3D model of a 44 BRICKS construction site with a tower crane, rising building, materials, and a monitoring drone" style="display:block;width:100%;height:clamp(380px,56vw,640px);cursor:grab;touch-action:pan-y"></canvas>
+    <div style="position:absolute;top:16px;right:16px;z-index:3;display:flex;gap:6px">
+      <button onClick="{{ siteView }}" style="cursor:pointer;min-height:40px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;padding:10px 14px;border-radius:2px;border:1px solid {{ sb.bd }};background:{{ sb.bg }};color:{{ sb.fg }}">SITE VIEW</button>
+      <button onClick="{{ droneView }}" style="cursor:pointer;min-height:40px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;padding:10px 14px;border-radius:2px;border:1px solid {{ db.bd }};background:{{ db.bg }};color:{{ db.fg }}">DRONE VIEW</button>
+    </div>
+    <sc-if value="{{ droneMode }}" hint-placeholder-val="{{ false }}">
+      <div aria-hidden="true" style="position:absolute;inset:0;z-index:2;pointer-events:none">
+        <span style="position:absolute;top:14px;left:14px;width:34px;height:34px;border-top:2px solid #E3B75B;border-left:2px solid #E3B75B"></span>
+        <span style="position:absolute;bottom:14px;left:14px;width:34px;height:34px;border-bottom:2px solid #E3B75B;border-left:2px solid #E3B75B"></span>
+        <span style="position:absolute;bottom:14px;right:14px;width:34px;height:34px;border-bottom:2px solid #E3B75B;border-right:2px solid #E3B75B"></span>
+        <span style="position:absolute;top:22px;left:62px;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#E3B75B">{{ recDot }}DRONE CAM 01 — LIVE</span>
+      </div>
+    </sc-if>
+    <div style="position:absolute;left:16px;right:16px;bottom:16px;z-index:3;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px;flex:1;max-width:440px;min-width:240px;background:rgba(8,20,47,.75);padding:8px 12px;border-radius:2px">
+        <label for="hubPhase" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#C3CDE2;white-space:nowrap">BUILD PHASE</label>
+        <input id="hubPhase" ref="{{ sliderRef }}" type="range" min="0" max="100" defaultValue="0" onInput="{{ onPhase }}" style="flex:1;accent-color:#C9972C;cursor:pointer">
+        <button onClick="{{ phaseAuto }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:6px 10px;border-radius:2px;border:1px solid {{ ab.bd }};background:{{ ab.bg }};color:{{ ab.fg }}">AUTO</button>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8FA2C8">DRAG TO ORBIT</span>
+    </div>
+    <sc-if value="{{ noGL }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;padding:32px;background:#08142F;text-align:center;color:#C3CDE2"><p><b style="color:#fff">3D view unavailable on this device.</b><br>Everything the Property Hub offers is listed below.</p></div>
+    </sc-if>
+  </div>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,128px) clamp(16px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:20px">WHAT’S IN THE HUB</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16)">
+    <div data-rv="" data-tilt="" style="background:#0A1A3C;padding:32px 28px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8FA2C8;margin-bottom:16px">HUB-01 / BUILD</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;margin-bottom:10px">Build Packages</h2>
+      <p style="color:#C3CDE2;margin-bottom:20px">Structured packages that take you from land to keys with one accountable team.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px"><li>— Residential builds, starter to executive</li><li>— Commercial shells &amp; fit-outs</li><li>— Renovation &amp; extension packages</li></ul>
+    </div>
+    <div data-rv="" data-tilt="" style="background:#0A1A3C;padding:32px 28px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8FA2C8;margin-bottom:16px">HUB-02 / MONITOR</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;margin-bottom:10px">Drone Site Monitoring</h2>
+      <p style="color:#C3CDE2;margin-bottom:20px">Scheduled flights document your project from above — progress without visiting site.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px"><li>— Aerial progress photography</li><li>— Milestone flyover videos</li><li>— Site overview for planning &amp; QA</li></ul>
+    </div>
+    <div data-rv="" data-tilt="" style="background:#0A1A3C;padding:32px 28px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8FA2C8;margin-bottom:16px">HUB-03 / REVIEW</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;margin-bottom:10px">Video Progress Updates</h2>
+      <p style="color:#C3CDE2;margin-bottom:20px">Walkthrough and flyover films keep every stakeholder aligned, wherever they are.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px"><li>— Site walkthrough films</li><li>— Drone flyover reels</li><li>— Handover documentation</li></ul>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F4F2EE;color:#0F1B33">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,128px) clamp(16px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">SEE IT FOR YOURSELF</p>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:40px">
+      <h2 data-rv="" style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:-.02em;max-width:14ch">What monitoring looks like</h2>
+      <a href="Projects.dc.html" style="font-weight:600;color:#003399">All projects on record →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px">
+      <sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><sc-for list="{{ projects }}" as="p" hint-placeholder-count="0">
+        <a href="{{ p.url }}" data-rv="" data-tilt="" style="display:flex;flex-direction:column;color:#0F1B33" style-hover="color:#003399">
+          <span role="img" aria-label="{{ p.name }} aerial" style="display:block;background:#0A1A3C url({{ p.thumb }}) center/cover no-repeat;width:100%;aspect-ratio:4/3;"></span>
+          <span style="display:flex;justify-content:space-between;gap:12px;padding:14px 0 12px;border-bottom:1px solid #DAD6CD"><b style="font-family:'Archivo',sans-serif;font-size:19px">{{ p.name }}</b><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#4A5266;align-self:center">{{ p.n }} PHASES</span></span>
+        </a>
+      </sc-for></sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="consult" style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,128px) clamp(16px,4vw,48px)">
+  <form action="contact.php" method="POST" onSubmit="{{ submit }}" noValidate="{{ true }}" style="display:flex;flex-wrap:wrap;gap:40px clamp(32px,5vw,72px)">
+    <input type="hidden" name="_subject" value="Property Hub — Build Consultation Request">
+    <input type="text" name="_honey" style="display:none" tabIndex="-1" autoComplete="off">
+    <div style="flex:1 1 280px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:20px">STEP ONE</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 110;font-size:clamp(32px,4vw,52px);line-height:1">Book a build consultation</h2>
+      <p style="margin-top:14px;color:#C3CDE2;max-width:36ch">Tell us about your site and the package you’re considering — we’ll come back with next steps.</p>
+    </div>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:2 1 min(100%,520px);border:1px solid rgba(255,255,255,.2);padding:32px;display:flex;flex-direction:column;gap:12px">
+        <p style="font-family:'Archivo',sans-serif;font-weight:800;font-size:28px">Request received.</p>
+        <p style="color:#C3CDE2">{{ status }}</p>
+        <a href="Projects.dc.html" style="font-weight:600">Meanwhile, browse our projects →</a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:2 1 min(100%,520px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">FULL NAME<input name="name" type="text" autoComplete="name" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none;border-radius:0" style-focus="border-bottom-color:#E3B75B"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">PHONE<input name="phone" type="tel" autoComplete="tel" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none;border-radius:0" style-focus="border-bottom-color:#E3B75B"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">EMAIL<input name="email" type="email" autoComplete="email" required="{{ true }}" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none;border-radius:0" style-focus="border-bottom-color:#E3B75B"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">SERVICE<select name="service" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:#0A1A3C;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none;border-radius:0">
+          <option>Build package — residential</option>
+          <option>Build package — commercial</option>
+          <option>Drone site monitoring</option>
+          <option>Video progress updates</option>
+          <option>Renovation &amp; maintenance</option>
+        </select></label>
+        <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8FA2C8">TELL US ABOUT YOUR PROJECT OR SITE<textarea name="message" required="{{ true }}" rows="3" style="font-family:'Instrument Sans',sans-serif;font-size:16px;letter-spacing:0;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:8px 0;outline:none;resize:vertical;border-radius:0" style-focus="border-bottom-color:#E3B75B"></textarea></label>
+        <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+          <button type="submit" style="cursor:pointer;background:#C9972C;color:#0A1A3C;border:0;font-weight:600;font-size:15px;padding:15px 24px;border-radius:2px" style-hover="background:#E3B75B">Request consultation</button>
+          <span aria-live="polite" style="font-size:14px;color:#E3B75B">{{ status }}</span>
+        </div>
+      </div>
+    </sc-if>
+  </form>
+</section>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.B44, mode: 'site', auto: true, noGL: false, status: '', sent: false };
+  hubRef = React.createRef(); canvasRef = React.createRef(); sliderRef = React.createRef();
+  componentDidMount() {
+    const w = () => { if (window.B44) this.setState({ ready: true }, () => setTimeout(() => window.B44.fx(), 60)); else this._w = setTimeout(w, 30); };
+    w();
+    let n = 0;
+    this._g = setInterval(() => {
+      if (window.THREE && window.FX44) {
+        clearInterval(this._g);
+        this._site = window.FX44.site(this.hubRef.current, this.canvasRef.current, this.sliderRef.current, () => this.setState({ noGL: true }));
+      } else if (++n > 120) { clearInterval(this._g); this.setState({ noGL: true }); }
+    }, 80);
+  }
+  componentWillUnmount() { clearTimeout(this._w); clearInterval(this._g); this._site && this._site.destroy(); }
+  renderVals() {
+    if (!this.state) return {};
+    const D = window.B44;
+    const { mode, auto, noGL, status, sent } = this.state;
+    if (!this._rec) this._rec = React.createElement('span', { style: { width: 9, height: 9, borderRadius: '50%', background: '#FF4D4D', display: 'inline-block', animation: 'blink 1.1s steps(1) infinite' } });
+    const on = (a) => a ? { bg: '#C9972C', fg: '#0A1A3C', bd: '#C9972C' } : { bg: 'rgba(8,20,47,.75)', fg: '#DCE3F0', bd: 'rgba(255,255,255,.3)' };
+    const setMode = (m) => { this.setState({ mode: m }); this._site && this._site.setMode(m); };
+    return {
+      ready: !!D && this.state.ready,
+      hubRef: this.hubRef, canvasRef: this.canvasRef, sliderRef: this.sliderRef,
+      sb: on(mode === 'site'), db: on(mode === 'drone'), ab: on(auto), droneMode: mode === 'drone', recDot: this._rec, noGL,
+      siteView: () => setMode('site'), droneView: () => setMode('drone'),
+      onPhase: (e) => { this._site && this._site.setManual(+e.target.value / 100); if (auto) this.setState({ auto: false }); },
+      phaseAuto: () => { this._site && this._site.setManual(null); this.setState({ auto: true }); },
+      projects: D ? D.PROJECTS.map((p) => ({ name: p.name, thumb: p.cover, n: p.phases.length, url: D.projectUrl(p.slug) })) : [],
+      sent, notSent: !sent, status,
+      submit: async (e) => {
+        e.preventDefault(); const f = e.currentTarget; if (!D) return;
+        this.setState({ status: 'Sending…' });
+        const r = await D.submit(f);
+        this.setState({ status: r.msg, sent: r.ok && !!r.msg && !r.mailto });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

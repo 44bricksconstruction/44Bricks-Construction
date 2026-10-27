@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Team — 44 BRICKS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F4F2EE;color:#0F1B33;font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:#003399;text-decoration:none}
+a:hover{color:#0A1A3C}
+::selection{background:#003399;color:#fff}
+section[id]{scroll-margin-top:84px}
+button{font-family:inherit}
+</style>
+<script src="site-data.js"></script>
+</helmet>
+<dc-import name="Header" active="team" hint-size="100%,68px"></dc-import>
+
+<section aria-label="Our team on site" style="position:relative;height:min(86vh,820px);min-height:460px;overflow:hidden;background:#0A1A3C;color:#fff">
+  <span role="img" aria-label="44 BRICKS site team walking a residential development" style="position:absolute;inset:0;background:#0A1A3C url(assets/team2.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ o0 }};transform:scale({{ z0 }})"></span>
+  <span role="img" aria-label="44 BRICKS engineers in conversation on site" style="position:absolute;inset:0;background:#0A1A3C url(assets/team1.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ o1 }};transform:scale({{ z1 }})"></span>
+  <span role="img" aria-label="44 BRICKS team reviewing progress inside a blockwork structure" style="position:absolute;inset:0;background:#0A1A3C url(assets/team3.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ o2 }};transform:scale({{ z2 }})"></span>
+  <span role="img" aria-label="44 BRICKS team inspecting a completed home" style="position:absolute;inset:0;background:#0A1A3C url(assets/team4.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ o3 }};transform:scale({{ z3 }})"></span>
+  <span role="img" aria-label="44 BRICKS team at the gate of a delivered residence" style="position:absolute;inset:0;background:#0A1A3C url(assets/team5.jpg) center/cover no-repeat;transition:opacity 1.6s ease, transform 8s linear;opacity:{{ o4 }};transform:scale({{ z4 }})"></span>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,60,.1) 35%,rgba(10,26,60,.88) 100%)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;max-width:1240px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(16px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:18px"><a href="44%20Bricks%20Website.dc.html" style="color:#DCE3F0">HOME</a> / TEAM</p>
+    <h1 style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 115;font-size:clamp(44px,7.5vw,104px);line-height:.92;letter-spacing:-.025em;max-width:12ch">The people behind every brick.</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between;margin-top:24px">
+      <p style="font-size:18px;color:#DCE3F0;max-width:46ch">Engineers, supervisors, and site crews who inspect, document, and deliver every project.</p>
+      <div style="display:flex;gap:6px">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+          <button onClick="{{ d.onClick }}" aria-label="{{ d.aria }}" style="cursor:pointer;width:36px;height:24px;background:transparent;border:0;padding:10px 0"><span style="display:block;height:3px;background:{{ d.c }}"></span></button>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership" style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,128px) clamp(16px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">LEADERSHIP</p>
+  <h2 data-rv="" style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:-.02em;margin-bottom:48px">Responsible persons</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px 24px">
+    <sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}">
+      <sc-for list="{{ team }}" as="m" hint-placeholder-count="0">
+        <article data-rv="" data-tilt="">
+          <span role="img" aria-label="{{ m.name }}" style="display:block;width:100%;aspect-ratio:4/5;background:#0A1A3C url({{ m.img }}) center top/cover no-repeat;margin-bottom:16px"></span>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#003399;text-transform:uppercase">{{ m.role }}</p>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;margin:4px 0 8px">{{ m.name }}</h3>
+          <p style="font-size:15px;color:#4A5266;text-wrap:pretty">{{ m.bio }}</p>
+        </article>
+      </sc-for>
+    </sc-if>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid #DAD6CD;border-bottom:1px solid #DAD6CD">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,128px) clamp(16px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:20px">ON SITE</p>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between;margin-bottom:40px">
+      <h2 data-rv="" style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:-.02em;max-width:14ch">Accountability you can see</h2>
+      <p style="font-size:17px;color:#4A5266;max-width:44ch">Regular inspections and quality walkthroughs throughout every project’s lifecycle — from foundation to finishing.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+      <img data-rv="" data-tilt="" src="assets/team1.jpg" alt="Engineers in conversation on site" style="width:100%;aspect-ratio:3/2;object-fit:cover">
+      <img data-rv="" data-tilt="" src="assets/team3.jpg" alt="Reviewing progress inside a blockwork structure" style="width:100%;aspect-ratio:3/2;object-fit:cover">
+      <img data-rv="" data-tilt="" src="assets/team4.jpg" alt="Inspecting a completed home" style="width:100%;aspect-ratio:3/2;object-fit:cover">
+      <img data-rv="" data-tilt="" src="assets/team5.jpg" alt="At the gate of a delivered residence" style="width:100%;aspect-ratio:3/2;object-fit:cover">
+      <img data-rv="" data-tilt="" src="assets/team2.jpg" alt="Walking a residential development" style="width:100%;aspect-ratio:3/2;object-fit:cover">
+      <img data-rv="" data-tilt="" src="assets/img43.jpg" alt="Team reviewing plans beside a residential build" style="width:100%;aspect-ratio:3/2;object-fit:cover">
+    </div>
+  </div>
+</section>
+
+<section style="background:#003399;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between">
+    <p style="flex:1 1 min(100%,560px);font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 110;font-size:clamp(28px,3.6vw,48px);line-height:1.05;max-width:20ch">Want to build with this team?</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <a href="Contact.dc.html#start" style="background:#C9972C;color:#0A1A3C;font-weight:600;padding:15px 24px;border-radius:2px" style-hover="background:#E3B75B;color:#0A1A3C">Start your project</a>
+      <a href="Contact.dc.html?form=partner#forms" style="color:#fff;font-weight:600;padding:14px 24px;border:1px solid rgba(255,255,255,.6);border-radius:2px" style-hover="background:#fff;color:#003399">Join the team</a>
+    </div>
+  </div>
+</section>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const N = 5, MS = 6500;
+class Component extends DCLogic {
+  state = { ready: !!window.B44, i: 0, zoom: false };
+  componentDidMount() {
+    const w = () => { if (window.B44) this.setState({ ready: true }, () => setTimeout(() => window.B44.fx(), 60)); else this._w = setTimeout(w, 30); };
+    w();
+    this.restart();
+  }
+  componentWillUnmount() { clearTimeout(this._w); clearInterval(this._t); }
+  restart() {
+    clearInterval(this._t);
+    this.setState({ zoom: false });
+    requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ zoom: true })));
+    this._t = setInterval(() => this.go(this.state.i + 1), MS);
+  }
+  go(k) { this.setState({ i: (k + N) % N }); this.restart(); }
+  renderVals() {
+    if (!this.state) return {};
+    const { i, zoom, ready } = this.state;
+    const v = { ready, team: ready && window.B44 ? window.B44.TEAM : [] };
+    for (let k = 0; k < N; k++) { v['o' + k] = k === i ? 1 : 0; v['z' + k] = k === i && zoom ? 1.1 : 1.02; }
+    v.dots = Array.from({ length: N }, (_, k) => ({ aria: 'Photo ' + (k + 1), c: k === i ? '#E3B75B' : 'rgba(255,255,255,.35)', onClick: () => this.go(k) }));
+    return v;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Projects — 44 BRICKS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F4F2EE;color:#0F1B33;font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:#003399;text-decoration:none}
+a:hover{color:#0A1A3C}
+::selection{background:#003399;color:#fff}
+section[id]{scroll-margin-top:84px}
+button{font-family:inherit}
+</style>
+<script src="site-data.js"></script>
+</helmet>
+<dc-import name="Header" active="projects" hint-size="100%,68px"></dc-import>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,48px) clamp(32px,4vw,48px)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#003399;margin-bottom:24px"><a href="44%20Bricks%20Website.dc.html" style="color:#4A5266">HOME</a> / PROJECTS</p>
+  <div style="display:flex;flex-wrap:wrap;gap:24px clamp(32px,5vw,72px);align-items:flex-end;justify-content:space-between">
+    <h1 style="flex:1 1 min(100%,560px);font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 115;font-size:clamp(44px,7vw,96px);line-height:.94;letter-spacing:-.025em">Projects, on <span style="color:#003399">record.</span></h1>
+    <p style="flex:1 1 300px;max-width:42ch;font-size:18px;color:#4A5266;text-wrap:pretty">Every development documented from setting out to handover — by our site team and drone monitoring crew.</p>
+  </div>
+  <div role="tablist" aria-label="Filter projects" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:40px">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+      <button role="tab" aria-selected="{{ f.sel }}" onClick="{{ f.onClick }}" style="cursor:pointer;min-height:44px;font-size:15px;font-weight:600;padding:10px 18px;border-radius:2px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};display:flex;gap:8px;align-items:baseline"><span>{{ f.label }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.7">{{ f.count }}</span></button>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,48px) clamp(64px,8vw,112px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px 24px">
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+      <a href="{{ p.url }}" data-rv="" data-tilt="" style="display:flex;flex-direction:column;color:#0F1B33" style-hover="color:#003399">
+        <span style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#0A1A3C">
+          <span role="img" aria-label="{{ p.name }}" style="display:block;background:#0A1A3C url({{ p.cover }}) center/cover no-repeat;width:100%;height:100%;"></span>
+          <span style="position:absolute;top:14px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;padding:5px 9px;border-radius:2px;background:{{ p.badgeBg }};color:{{ p.badgeFg }}">{{ p.statusUp }}</span>
+        </span>
+        <span style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:18px">
+          <span style="font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 108;font-size:clamp(24px,2.4vw,32px);line-height:1.1">{{ p.name }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#4A5266;white-space:nowrap">{{ p.phaseCount }} PHASES</span>
+        </span>
+        <span style="font-size:15px;color:#4A5266;margin-top:2px">{{ p.type }} · {{ p.scope }}</span>
+        <span style="margin-top:12px;color:#0F1B33;text-wrap:pretty">{{ p.summary }}</span>
+        <span style="margin-top:16px;font-weight:600;color:#003399">View project →</span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section id="film" style="background:#0A1A3C;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,9vw,128px) clamp(16px,4vw,48px)">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#E3B75B;margin-bottom:20px">FILM</p>
+    <h2 data-rv="" style="font-family:'Archivo',sans-serif;font-weight:850;font-variation-settings:'wdth' 112;font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:-.02em;margin-bottom:40px">Watch the work</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px">
+      <sc-for list="{{ films }}" as="v" hint-placeholder-count="4">
+        <button onClick="{{ v.onClick }}" data-rv="" style="cursor:pointer;background:transparent;border:0;padding:0;text-align:left;color:#fff">
+          <span style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#08142F"><span role="img" aria-label="{{ v.name }} video thumbnail" style="display:block;background:#0A1A3C url({{ v.thumb }}) center/cover no-repeat;width:100%;height:100%;"></span><span style="position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#003399;font-size:16px;padding-left:3px">▶</span></span>
+          <span style="display:flex;justify-content:space-between;gap:12px;padding:14px 0 12px;border-bottom:1px solid rgba(255,255,255,.16)"><b style="font-family:'Archivo',sans-serif;font-size:19px">{{ v.name }}</b><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B9C8EC;align-self:center">{{ v.len }}</span></span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between">
+  <p style="flex:1 1 min(100%,560px);font-family:'Archivo',sans-serif;font-weight:800;font-variation-settings:'wdth' 110;font-size:clamp(28px,3.6vw,48px);line-height:1.05;max-width:22ch">Interested in a unit — or a build like these?</p>
+  <div style="display:flex;flex-wrap:wrap;gap:12px">
+    <a href="Contact.dc.html?form=interest#forms" style="background:#003399;color:#fff;font-weight:600;padding:15px 24px;border-radius:2px" style-hover="background:#0A1A3C;color:#fff">Register interest</a>
+    <a href="Contact.dc.html#start" style="color:#0F1B33;font-weight:600;padding:14px 24px;border:1px solid #0F1B33;border-radius:2px" style-hover="background:#0F1B33;color:#fff">Start your project</a>
+  </div>
+</section>
+
+<sc-if value="{{ videoOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="{{ videoTitle }}" onClick="{{ closeVideo }}" style="position:fixed;inset:0;z-index:100;background:rgba(6,14,34,.94);display:flex;align-items:center;justify-content:center;padding:clamp(12px,4vw,48px)">
+    <div onClick="{{ stop }}" style="width:min(1100px,100%);display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;color:#fff;gap:12px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em">{{ videoTitle }}</span>
+        <button onClick="{{ closeVideo }}" aria-label="Close video" style="cursor:pointer;flex:none;background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;width:44px;height:44px;font-size:22px;border-radius:2px">×</button>
+      </div>
+      {{ videoEl }}
+    </div>
+  </div>
+</sc-if>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.B44, filter: 'All', video: null };
+  componentDidMount() {
+    const w = () => { if (window.B44) this.setState({ ready: true }, () => setTimeout(() => window.B44.fx(), 60)); else this._w = setTimeout(w, 30); };
+    w();
+    this._k = (e) => { if (e.key === 'Escape') this.setState({ video: null }); };
+    addEventListener('keydown', this._k);
+  }
+  componentDidUpdate(pp, ps) { if (ps && ps.filter !== this.state.filter && window.B44) setTimeout(() => window.B44.fx(), 30); }
+  componentWillUnmount() { clearTimeout(this._w); removeEventListener('keydown', this._k); }
+  renderVals() {
+    if (!this.state) return {};
+    const D = window.B44;
+    if (!D) return { filters: [], projects: [], films: [] };
+    const { filter, video } = this.state;
+    const all = D.PROJECTS;
+    const list = filter === 'All' ? all : all.filter((p) => p.status === filter);
+    const v = video ? D.project(video) : null;
+    return {
+      filters: ['All', 'Delivered', 'Ongoing'].map((f) => ({
+        label: f, count: f === 'All' ? all.length : all.filter((p) => p.status === f).length, sel: f === filter ? 'true' : 'false',
+        bg: f === filter ? '#0F1B33' : 'transparent', fg: f === filter ? '#fff' : '#0F1B33', bd: f === filter ? '#0F1B33' : '#C9C5BC',
+        onClick: () => this.setState({ filter: f }),
+      })),
+      projects: list.map((p) => ({ ...p, url: D.projectUrl(p.slug), statusUp: p.status.toUpperCase(), phaseCount: p.phases.length,
+        badgeBg: p.status === 'Ongoing' ? '#C9972C' : '#fff', badgeFg: '#0A1A3C' })),
+      films: all.map((p) => ({ name: p.name, thumb: p.video.thumb, len: p.type.toUpperCase() + ' · ' + p.video.len, onClick: () => this.setState({ video: p.slug }) })),
+      videoOpen: !!v,
+      videoEl: !!v ? React.createElement('video', { key: 'v', src: v.video.src, controls: true, autoPlay: true, playsInline: true, style: { width: '100%', maxHeight: '78vh', background: '#000' } }) : null, videoSrc: v ? v.video.src : '', videoTitle: v ? v.name.toUpperCase() + ' — ' + v.type.toUpperCase() : '',
+      closeVideo: () => this.setState({ video: null }), stop: (e) => e.stopPropagation(),
+    };
+  }
+}
+</script>
+</body>
+</html>
